@@ -13,9 +13,8 @@ The pipeline operates in two modes to provide flexibility throughout the tournam
 
 ### AI Brain (`/ai_brain`)
 * **Neural Network Architecture**: 
-    * **Transformer Encoder**: A 2-layer transformer processing the last 10 matches to capture recent form, including goals, opponent Elo, and home/away dynamics.
+    * **Transformer Encoder**: A 2-layer transformer processing the last 10 matches to capture recent form, including goals, opponent Elo.
     * **Static Feature Branch**: A feed-forward network ingesting FIFA rankings, current Elo differences, and proprietary squad valuation metrics.
-    * **Poisson Output**: Dual Softplus units predicting home/away xG.
 * **Loss Function**: Custom weighted Poisson loss, minimizing `(xG – actual_goals * log(xG))` with temporal decay to prioritize recent form.
 
 ### Simulation Engine (`/sim_engine`)
