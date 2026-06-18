@@ -1,0 +1,21 @@
+============================================================
+FEATURE IMPORTANCE (Permutation Loss Increase)
+============================================================
+Baseline validation loss: 0.841123
+
+Feature                          Importance
+------------------------------------------
+GD Median Diff                     0.000000
+Tournament Mult                    0.000315
+H2H Goal Diff                      0.000484
+GD P95 Diff                        0.001180
+Squad Max Diff                     0.002803
+Count >50M Diff                    0.004793
+FIFA Diff                          0.009958
+Squad Var Diff                     0.017973
+Elo Diff                           0.034172
+Squad Sum Diff                     0.037293
+------------------------------------------
+
+Sorted by importance (lowest to highest).
+Higher values indicate the feature has a stronger impact on predictions.

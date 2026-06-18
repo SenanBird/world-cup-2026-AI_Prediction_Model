@@ -39,7 +39,7 @@ if FORCE_FRESH:
     if os.path.exists(model_file):
         os.remove(model_file)
 
-EPOCHS = 80
+EPOCHS = 100
 LEARNING_RATE = 0.0005
 BATCH_SIZE = 256
 EMBEDDING_DIM = 16
@@ -135,24 +135,18 @@ def get_fifa_points(team, match_date):
 # ==========================================
 print("[3/5] Preparing squad data (improved historical snapshots)...")
 
-# Merge players and valuations
 valuations_with_country = valuations_df.merge(players_df[['player_id', 'country_of_citizenship']], on='player_id', how='left')
 valuations_with_country = valuations_with_country.dropna(subset=['country_of_citizenship'])
 valuations_with_country['date'] = pd.to_datetime(valuations_with_country['date'])
 valuations_with_country['year'] = valuations_with_country['date'].dt.year
 
-# Build a function that, given a country and a reference year (or max year),
-# returns squad features using the latest valuation per player available
-# up to (and including) that reference year.
 def squad_for_country_up_to_year(country, ref_year):
-    """Squad features using latest valuation per player on or before ref_year."""
     subset = valuations_with_country[
         (valuations_with_country['country_of_citizenship'] == country) &
         (valuations_with_country['year'] <= ref_year)
     ]
     if len(subset) == 0:
         return None
-    # Latest valuation per player within the allowed timeframe
     latest = subset.sort_values('date').groupby('player_id').last().reset_index()
     market_vals = latest['market_value_in_eur'].fillna(0).astype(float) / 1_000_000.0
     top23 = market_vals.nlargest(23)
@@ -165,20 +159,16 @@ def squad_for_country_up_to_year(country, ref_year):
         'count_above_50M': int((top23 > 50).sum())
     }
 
-# Cache for fast lookup
 squad_cache = {}
 def get_squad_historical(team, year):
-    """Return squad features for a team as known up to the given year."""
     key = (team, year)
     if key not in squad_cache:
         res = squad_for_country_up_to_year(team, year)
         if res is None:
-            # Fallback: use default if no data
             res = {'sum': 50.0, 'var': 0.0, 'max': 50.0, 'count_above_50M': 0}
         squad_cache[key] = res
     return squad_cache[key]
 
-# Precompute current squad (ref_year = current_year) for predictions
 current_squad = {}
 for team in team_to_group:
     current_squad[team] = squad_for_country_up_to_year(team, current_year)
@@ -186,7 +176,7 @@ for team in team_to_group:
         current_squad[team] = {'sum': 50.0, 'var': 0.0, 'max': 50.0, 'count_above_50M': 0}
 
 # ==========================================
-# ELO AND FEATURES (using improved squad)
+# ELO AND FEATURES (symmetric, no home/away separation)
 # ==========================================
 all_teams = sorted(set(results_df['Home Team'].unique()) | set(results_df['Away Team'].unique()))
 team_to_idx = {team: i for i, team in enumerate(all_teams)}
@@ -200,6 +190,21 @@ if missing:
         team_to_idx[team] = len(all_teams) - 1
     num_teams = len(all_teams)
 
+# --------------------------------------------------
+# Debug file: write Elo & squad for all tournament teams
+# --------------------------------------------------
+print("[DEBUG] Writing Elo & squad facts to team_features_debug.txt")
+ref_date = pd.Timestamp('2026-06-01')
+with open(f"{OUTPUT_DIR}team_features_debug.txt", 'w', encoding='utf-8') as f:
+    f.write("=" * 80 + "\n")
+    f.write("ELO & SQUAD FACTS FOR ALL WORLD CUP 2026 PARTICIPANTS\n")
+    f.write("=" * 80 + "\n\n")
+    # We don't have Elo yet (will be computed next), so we'll write later.
+    # Instead, we'll write the squad facts now and append Elo later.
+
+# --------------------------------------------------
+# Elo calculation (sequential)
+# --------------------------------------------------
 if os.path.exists(ELO_CACHE):
     print("[4/5] Loading cached Elo data...")
     with open(ELO_CACHE, 'rb') as f:
@@ -212,7 +217,7 @@ else:
     print("[4/5] Computing Elo ratings & features (sequential)...")
     elo = defaultdict(lambda: 1500.0)
     K = 32
-    HOME_ADV = 35
+    # NO home advantage – all matches are considered neutral for the model
     team_history = defaultdict(list)
     match_data = []
     
@@ -227,15 +232,9 @@ else:
         weight = row['Weight']
         match_date = row['Date']
         
-        neutral = row.get('Neutral', False)
-        if isinstance(neutral, str): neutral = neutral.upper() == 'TRUE'
-        
-        if neutral:
-            h_elo_before = elo[h]
-            a_elo_before = elo[a]
-        else:
-            h_elo_before = elo[h] + HOME_ADV
-            a_elo_before = elo[a]
+        # Neutral Elo (no home advantage)
+        h_elo_before = elo[h]
+        a_elo_before = elo[a]
         
         home_fifa = get_fifa_points(h, match_date)
         away_fifa = get_fifa_points(a, match_date)
@@ -255,25 +254,26 @@ else:
         h_seq = encode_history(h_hist)
         a_seq = encode_history(a_hist)
         
-        h2h_gd, h2h_wins_home, h2h_matches = 0, 0, 0
+        # Head-to-head (neutral)
+        h2h_gd = 0
+        h2h_matches = 0
         for prev_idx in range(max(0, idx-200), idx):
             prev_row = results_df.iloc[prev_idx]
             prev_h, prev_a = prev_row['Home Team'], prev_row['Away Team']
             if prev_h == h and prev_a == a:
                 gd = prev_row['Home Score'] - prev_row['Away Score']
                 h2h_gd += gd
-                if gd > 0: h2h_wins_home += 1
                 h2h_matches += 1
             elif prev_h == a and prev_a == h:
-                gd = prev_row['Away Score'] - prev_row['Home Score']
+                gd = prev_row['Away Score'] - prev_row['Home Score']   # swap to maintain h - a perspective
                 h2h_gd += gd
-                if gd > 0: h2h_wins_home += 1
                 h2h_matches += 1
-            if h2h_matches >= 5: break
+            if h2h_matches >= 5:
+                break
         
-        h2h_gd = max(-10, min(10, h2h_gd))
-        h2h_wins_home = h2h_wins_home / 5.0 if h2h_matches > 0 else 0.0
+        h2h_gd = max(-10, min(10, h2h_gd / max(1, h2h_matches)))   # average goal diff
         
+        # Goal difference stats
         def get_goal_diff_stats(team):
             gd_list = [m['goals_for'] - m['goals_against'] for m in team_history[team][-10:]] if team_history[team] else [0]
             if not gd_list: return 0.0, 0.0
@@ -282,31 +282,44 @@ else:
         h_gd_med, h_gd_p95 = get_goal_diff_stats(h)
         a_gd_med, a_gd_p95 = get_goal_diff_stats(a)
         
-        # Use improved historical squad (based on data up to that match year)
         h_squad = get_squad_historical(h, year)
         a_squad = get_squad_historical(a, year)
         
         comp = row.get('Tournament', 'Friendly')
         tourney_mult = 2.0 if 'World Cup' in str(comp) else (1.5 if 'qualification' in str(comp).lower() else 1.0)
         
+        # Compute symmetric difference features (Team A - Team B)
+        squad_sum_diff = (h_squad['sum'] - a_squad['sum']) / 100.0
+        squad_var_diff = np.log1p(h_squad['var'] + 1) - np.log1p(a_squad['var'] + 1)
+        squad_max_diff = (h_squad['max'] - a_squad['max']) / 100.0
+        count_50M_diff = h_squad['count_above_50M'] - a_squad['count_above_50M']
+        gd_median_diff = h_gd_med - a_gd_med
+        gd_p95_diff = h_gd_p95 - a_gd_p95
+        fifa_diff = home_fifa - away_fifa
+        
         match_info = {
-            'home_idx': team_to_idx.get(h, 0), 'away_idx': team_to_idx.get(a, 0),
-            'home_elo': h_elo_before, 'away_elo': a_elo_before,
-            'home_seq': np.array(h_seq, dtype=np.float32), 'away_seq': np.array(a_seq, dtype=np.float32),
-            'home_squad_sum': np.log1p(h_squad['sum']), 'away_squad_sum': np.log1p(a_squad['sum']),
-            'home_squad_var': np.log1p(h_squad['var'] + 1), 'away_squad_var': np.log1p(a_squad['var'] + 1),
-            'home_squad_max': np.log1p(h_squad['max']), 'away_squad_max': np.log1p(a_squad['max']),
-            'home_count_50M': h_squad['count_above_50M'], 'away_count_50M': a_squad['count_above_50M'],
-            'h2h_goal_diff': h2h_gd, 'h2h_wins_home': h2h_wins_home,
-            'home_gd_median': h_gd_med, 'away_gd_median': a_gd_med,
-            'home_gd_p95': h_gd_p95, 'away_gd_p95': a_gd_p95,
+            'teamA_idx': team_to_idx[h],
+            'teamB_idx': team_to_idx[a],
+            'teamA_seq': np.array(h_seq, dtype=np.float32),
+            'teamB_seq': np.array(a_seq, dtype=np.float32),
+            'elo_diff': h_elo_before - a_elo_before,
+            'squad_sum_diff': squad_sum_diff,
+            'squad_var_diff': squad_var_diff,
+            'squad_max_diff': squad_max_diff,
+            'count_50M_diff': count_50M_diff,
+            'h2h_goal_diff': h2h_gd,
+            'gd_median_diff': gd_median_diff,
+            'gd_p95_diff': gd_p95_diff,
             'tourney_mult': tourney_mult,
-            'home_fifa': home_fifa, 'away_fifa': away_fifa, 'fifa_diff': home_fifa - away_fifa,
-            'target_home_goals': row['Home Score'], 'target_away_goals': row['Away Score'],
-            'weight': weight, 'year': year,
+            'fifa_diff': fifa_diff,
+            'target_A_goals': row['Home Score'],
+            'target_B_goals': row['Away Score'],
+            'weight': weight,
+            'year': year,
         }
         match_data.append(match_info)
         
+        # Update Elo (neutral)
         h_score, a_score = row['Home Score'], row['Away Score']
         if h_score > a_score: h_res, a_res = 1, 0
         elif h_score < a_score: h_res, a_res = 0, 1
@@ -318,7 +331,7 @@ else:
         elo[h] = elo[h] + K_adj * (h_res - h_exp)
         elo[a] = elo[a] + K_adj * (a_res - a_exp)
         
-        team_history[h].append({'goals_for': h_score, 'goals_against': a_score, 'opponent_elo': a_elo_before, 'was_home': not neutral})
+        team_history[h].append({'goals_for': h_score, 'goals_against': a_score, 'opponent_elo': a_elo_before, 'was_home': False})
         team_history[a].append({'goals_for': a_score, 'goals_against': h_score, 'opponent_elo': h_elo_before, 'was_home': False})
 
     with open(ELO_CACHE, 'wb') as f:
@@ -328,44 +341,111 @@ else:
         }, f, protocol=pickle.HIGHEST_PROTOCOL)
     print(f"   Elo ratings calculated fresh and cached ({len(match_data):,} matches).")
 
+# Now write Elo to debug file (append)
+with open(f"{OUTPUT_DIR}team_features_debug.txt", 'a', encoding='utf-8') as f:
+    f.write("\n" + "=" * 80 + "\n")
+    f.write("ELO RATINGS (as of 2026-06-01)\n")
+    f.write("=" * 80 + "\n")
+    for team in sorted(team_to_group.keys()):
+        f.write(f"{team}: {elo.get(team, 1500.0):.2f}\n")
+    f.write("\n" + "=" * 80 + "\n")
+    f.write("CURRENT SQUAD SUMS (M€)\n")
+    f.write("=" * 80 + "\n")
+    for team in sorted(team_to_group.keys()):
+        f.write(f"{team}: {current_squad[team]['sum']:.2f}\n")
+
 # ==========================================
-# BUILD FEATURE MATRICES 
+# BUILD FEATURE MATRICES (symmetric, double data)
 # ==========================================
-print("[5/6] Building feature matrices...")
-static_features = []
+print("[5/6] Building symmetric feature matrices...")
+
+# Original matches
+features_orig = []
+targets_orig = []
+weights_orig = []
+years_orig = []
+seqA_orig = []
+seqB_orig = []
+idxA_orig = []
+idxB_orig = []
+
 for m in match_data:
     feat = [
-        m['home_elo'] - m['away_elo'],
-        m['home_squad_sum'], m['away_squad_sum'],
-        m['home_squad_var'], m['away_squad_var'],
-        m['home_squad_max'], m['away_squad_max'],
-        m['home_count_50M'], m['away_count_50M'],
-        m['h2h_goal_diff'], m['h2h_wins_home'],
-        m['home_gd_median'], m['away_gd_median'],
-        m['home_gd_p95'], m['away_gd_p95'],
-        m['tourney_mult'], m['home_fifa'], m['away_fifa'], m['fifa_diff']
+        m['elo_diff'],
+        m['squad_sum_diff'],
+        m['squad_var_diff'],
+        m['squad_max_diff'],
+        m['count_50M_diff'],
+        m['h2h_goal_diff'],
+        m['gd_median_diff'],
+        m['gd_p95_diff'],
+        m['tourney_mult'],
+        m['fifa_diff']
     ]
-    static_features.append(feat)
+    features_orig.append(feat)
+    targets_orig.append([m['target_A_goals'], m['target_B_goals']])
+    weights_orig.append(m['weight'])
+    years_orig.append(m['year'])
+    seqA_orig.append(m['teamA_seq'])
+    seqB_orig.append(m['teamB_seq'])
+    idxA_orig.append(m['teamA_idx'])
+    idxB_orig.append(m['teamB_idx'])
 
-static_features = np.array(static_features, dtype=np.float32)
-static_features = np.nan_to_num(static_features, nan=0.0, posinf=10.0, neginf=-10.0)
+# Mirrored matches (swap A and B, negate all difference features except tourney_mult)
+features_mirror = []
+targets_mirror = []
+weights_mirror = []
+years_mirror = []
+seqA_mirror = []
+seqB_mirror = []
+idxA_mirror = []
+idxB_mirror = []
+
+for i, m in enumerate(match_data):
+    feat = [
+        -m['elo_diff'],
+        -m['squad_sum_diff'],
+        -m['squad_var_diff'],
+        -m['squad_max_diff'],
+        -m['count_50M_diff'],
+        -m['h2h_goal_diff'],   # swap h2h perspective
+        -m['gd_median_diff'],
+        -m['gd_p95_diff'],
+        m['tourney_mult'],     # unchanged
+        -m['fifa_diff']
+    ]
+    features_mirror.append(feat)
+    targets_mirror.append([m['target_B_goals'], m['target_A_goals']])  # swap targets
+    weights_mirror.append(m['weight'])
+    years_mirror.append(m['year'])
+    seqA_mirror.append(m['teamB_seq'])   # now team A is the original away
+    seqB_mirror.append(m['teamA_seq'])
+    idxA_mirror.append(m['teamB_idx'])
+    idxB_mirror.append(m['teamA_idx'])
+
+# Combine
+features_all = np.array(features_orig + features_mirror, dtype=np.float32)
+targets_all = np.array(targets_orig + targets_mirror, dtype=np.float32)
+weights_all = np.array(weights_orig + weights_mirror, dtype=np.float32)
+years_all = np.array(years_orig + years_mirror)
+seqA_all = np.stack(seqA_orig + seqA_mirror)
+seqB_all = np.stack(seqB_orig + seqB_mirror)
+idxA_all = np.array(idxA_orig + idxA_mirror)
+idxB_all = np.array(idxB_orig + idxB_mirror)
+
+# Standardize
 scaler = StandardScaler()
-static_features_scaled = scaler.fit_transform(static_features)
+features_scaled = scaler.fit_transform(features_all)
 
-home_idx = np.array([m['home_idx'] for m in match_data])
-away_idx = np.array([m['away_idx'] for m in match_data])
-home_seq = np.stack([m['home_seq'] for m in match_data])
-away_seq = np.stack([m['away_seq'] for m in match_data])
-targets = np.array([[m['target_home_goals'], m['target_away_goals']] for m in match_data], dtype=np.float32)
-weights = np.array([m['weight'] for m in match_data], dtype=np.float32)
-years = np.array([m['year'] for m in match_data])
+# Train/val/test split (based on original years, mirrored get same split)
+train_mask = years_all < VAL_START_YEAR
+val_mask = (years_all >= VAL_START_YEAR) & (years_all < TEST_START_YEAR)
+test_mask = years_all >= TEST_START_YEAR
 
-train_mask = years < VAL_START_YEAR
-val_mask = (years >= VAL_START_YEAR) & (years < TEST_START_YEAR)
-test_mask = years >= TEST_START_YEAR
+print(f"   Total samples after mirroring: {len(features_all)} (train: {train_mask.sum()}, val: {val_mask.sum()}, test: {test_mask.sum()})")
 
 # ==========================================
-# MODEL DEFINITION 
+# MODEL DEFINITION (static_dim = 10)
 # ==========================================
 class PoissonLoss(nn.Module):
     def forward(self, pred, target, weights=None):
@@ -375,8 +455,8 @@ class PoissonLoss(nn.Module):
         if weights is not None: loss = loss * weights
         return loss.mean()
 
-class MatchPredictor(nn.Module):
-    def __init__(self, num_teams, embed_dim=16, hist_len=10, hist_input_dim=4, static_dim=19):
+class SymmetricPredictor(nn.Module):
+    def __init__(self, num_teams, embed_dim=16, hist_len=10, hist_input_dim=4, static_dim=10):
         super().__init__()
         self.team_embedding = nn.Embedding(num_teams, embed_dim)
         self.hist_proj = nn.Linear(hist_input_dim, 32)
@@ -386,26 +466,29 @@ class MatchPredictor(nn.Module):
             nn.Linear(static_dim, 64), nn.ReLU(), nn.Dropout(0.2),
             nn.Linear(64, 32), nn.ReLU()
         )
-        fusion_dim = embed_dim*2 + 32*2 + 32
+        fusion_dim = embed_dim*2 + 32*2 + 32   # teamA_emb + teamB_emb + teamA_state + teamB_state + static_out
         self.final_mlp = nn.Sequential(
             nn.Linear(fusion_dim, 128), nn.ReLU(), nn.Dropout(0.3),
             nn.Linear(128, 64), nn.ReLU(), nn.Dropout(0.2),
             nn.Linear(64, 2), nn.Softplus()
         )
     
-    def forward(self, home_id, away_id, home_seq, away_seq, static):
-        home_emb = self.team_embedding(home_id)
-        away_emb = self.team_embedding(away_id)
-        home_proj = self.hist_proj(home_seq)
-        away_proj = self.hist_proj(away_seq)
-        home_state = self.hist_encoder(home_proj)[:, -1, :]
-        away_state = self.hist_encoder(away_proj)[:, -1, :]
+    def forward(self, teamA_id, teamB_id, teamA_seq, teamB_seq, static):
+        # teamA embedding & history
+        emb_A = self.team_embedding(teamA_id)
+        proj_A = self.hist_proj(teamA_seq)
+        state_A = self.hist_encoder(proj_A)[:, -1, :]
+        # teamB
+        emb_B = self.team_embedding(teamB_id)
+        proj_B = self.hist_proj(teamB_seq)
+        state_B = self.hist_encoder(proj_B)[:, -1, :]
+        # static features
         static_out = self.static_branch(static)
-        combined = torch.cat([home_emb, away_emb, home_state, away_state, static_out], dim=1)
-        return self.final_mlp(combined)
+        combined = torch.cat([emb_A, emb_B, state_A, state_B, static_out], dim=1)
+        goals = self.final_mlp(combined)   # [goals_A, goals_B]
+        return goals
 
-static_dim = static_features_scaled.shape[1]
-model = MatchPredictor(num_teams, EMBEDDING_DIM, HISTORY_LEN, 4, static_dim).to(device)
+model = SymmetricPredictor(num_teams, EMBEDDING_DIM, HISTORY_LEN, 4, features_scaled.shape[1]).to(device)
 criterion = PoissonLoss()
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE, weight_decay=1e-5)
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=5, factor=0.5)
@@ -413,25 +496,24 @@ scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=5, factor=0
 # ==========================================
 # TRAINING 
 # ==========================================
-print("[6/6] Training model on data leading up to live point...")
+print("[6/6] Training symmetric model...")
 
-def create_dataloader(home_idx, away_idx, home_seq, away_seq, static, y, w, batch_size, shuffle=True):
+def create_dataloader(idxA, idxB, seqA, seqB, static, y, w, batch_size, shuffle=True):
     dataset = TensorDataset(
-        torch.tensor(home_idx, dtype=torch.long), torch.tensor(away_idx, dtype=torch.long),
-        torch.tensor(home_seq, dtype=torch.float32), torch.tensor(away_seq, dtype=torch.float32),
+        torch.tensor(idxA, dtype=torch.long), torch.tensor(idxB, dtype=torch.long),
+        torch.tensor(seqA, dtype=torch.float32), torch.tensor(seqB, dtype=torch.float32),
         torch.tensor(static, dtype=torch.float32), torch.tensor(y, dtype=torch.float32),
         torch.tensor(w, dtype=torch.float32)
     )
     return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, pin_memory=False, num_workers=0)
 
 train_loader = create_dataloader(
-    home_idx[train_mask], away_idx[train_mask], home_seq[train_mask], away_seq[train_mask], 
-    static_features_scaled[train_mask], targets[train_mask], weights[train_mask], BATCH_SIZE, True
+    idxA_all[train_mask], idxB_all[train_mask], seqA_all[train_mask], seqB_all[train_mask],
+    features_scaled[train_mask], targets_all[train_mask], weights_all[train_mask], BATCH_SIZE, True
 )
-
 val_loader = create_dataloader(
-    home_idx[val_mask], away_idx[val_mask], home_seq[val_mask], away_seq[val_mask], 
-    static_features_scaled[val_mask], targets[val_mask], weights[val_mask], BATCH_SIZE, False
+    idxA_all[val_mask], idxB_all[val_mask], seqA_all[val_mask], seqB_all[val_mask],
+    features_scaled[val_mask], targets_all[val_mask], weights_all[val_mask], BATCH_SIZE, False
 )
 
 best_val_loss = float('inf')
@@ -441,9 +523,9 @@ for epoch in range(EPOCHS):
     model.train()
     train_loss = 0.0
     for batch in train_loader:
-        hid, aid, hseq, aseq, stat, yb, wb = [x.to(device) for x in batch]
+        idA, idB, sA, sB, stat, yb, wb = [x.to(device) for x in batch]
         optimizer.zero_grad()
-        pred = model(hid, aid, hseq, aseq, stat)
+        pred = model(idA, idB, sA, sB, stat)
         loss = criterion(pred, yb, wb)
         if torch.isnan(loss) or torch.isinf(loss): continue
         loss.backward()
@@ -455,8 +537,8 @@ for epoch in range(EPOCHS):
     val_loss = 0.0
     with torch.no_grad():
         for batch in val_loader:
-            hid, aid, hseq, aseq, stat, yb, wb = [x.to(device) for x in batch]
-            val_loss += criterion(model(hid, aid, hseq, aseq, stat), yb, wb).item()
+            idA, idB, sA, sB, stat, yb, wb = [x.to(device) for x in batch]
+            val_loss += criterion(model(idA, idB, sA, sB, stat), yb, wb).item()
     val_loss /= len(val_loader)
     train_loss /= len(train_loader)
     
@@ -490,10 +572,10 @@ def build_team_features(team):
     squad = current_squad[team]
     pred_date = pd.Timestamp('2026-06-01')
     fifa_pts = get_fifa_points(team, pred_date)
-    team_idx = team_to_idx.get(team, 0)
-    return team_idx, seq, elo_val, squad, fifa_pts
+    return elo_val, seq, squad, fifa_pts
 
-team_base = {team: build_team_features(team) for team in team_to_group}
+# Pre-fetch
+team_data = {team: build_team_features(team) for team in team_to_group}
 
 predictions = []
 model.eval()
@@ -522,24 +604,29 @@ with torch.no_grad():
                 'Home_xG': float(h_score_raw), 'Away_xG': float(a_score_raw), 'Is_Played': 1
             })
         else:
-            hid, h_seq, h_elo, h_squad, h_fifa = team_base[home]
-            aid, a_seq, a_elo, a_squad, a_fifa = team_base[away]
+            h_elo, h_seq, h_squad, h_fifa = team_data[home]
+            a_elo, a_seq, a_squad, a_fifa = team_data[away]
             
+            # Compute symmetric diff features (team A = home, team B = away)
             feat = np.array([
                 h_elo - a_elo,
-                np.log1p(h_squad['sum']), np.log1p(a_squad['sum']),
-                np.log1p(h_squad['var']+1), np.log1p(a_squad['var']+1),
-                np.log1p(h_squad['max']), np.log1p(a_squad['max']),
-                h_squad['count_above_50M'], a_squad['count_above_50M'],
-                0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0,
-                h_fifa, a_fifa, h_fifa - a_fifa
+                (h_squad['sum'] - a_squad['sum']) / 100.0,
+                np.log1p(h_squad['var'] + 1) - np.log1p(a_squad['var'] + 1),
+                (h_squad['max'] - a_squad['max']) / 100.0,
+                h_squad['count_above_50M'] - a_squad['count_above_50M'],
+                0.0,  # h2h goal diff (unavailable for future)
+                0.0,  # gd median diff
+                0.0,  # gd p95 diff
+                2.0,  # tourney mult (World Cup)
+                h_fifa - a_fifa
             ], dtype=np.float32)
+            
             feat_scaled = scaler.transform(feat.reshape(1, -1))
             
-            hid_t = torch.tensor([hid], device=device)
-            aid_t = torch.tensor([aid], device=device)
             h_seq_t = torch.tensor(h_seq.reshape(1, HISTORY_LEN, 4), device=device)
             a_seq_t = torch.tensor(a_seq.reshape(1, HISTORY_LEN, 4), device=device)
+            hid_t = torch.tensor([team_to_idx[home]], device=device)
+            aid_t = torch.tensor([team_to_idx[away]], device=device)
             stat_t = torch.tensor(feat_scaled, device=device)
             
             home_xg, away_xg = model(hid_t, aid_t, h_seq_t, a_seq_t, stat_t).cpu().numpy()[0]
@@ -548,6 +635,14 @@ with torch.no_grad():
                 'Group': group, 'Home_Team': home, 'Away_Team': away,
                 'Home_xG': round(float(home_xg), 2), 'Away_xG': round(float(away_xg), 2), 'Is_Played': 0
             })
+
+            # Debug: Ecuador vs Germany
+            if home == 'Ecuador' and away == 'Germany':
+                print(f"\n[DEBUG] {home} vs {away}")
+                print(f"  Elo diff: {h_elo - a_elo:.2f}")
+                print(f"  Squad sum diff (scaled): {(h_squad['sum'] - a_squad['sum']) / 100.0:.4f}")
+                print(f"  FIFA diff: {h_fifa - a_fifa:.2f}")
+                print(f"  Predicted xG: {home_xg:.3f} - {away_xg:.3f}")
 
 print(f"   Extracted {len(predictions)} legitimate group stage matches.")
 if skipped_count > 0:
@@ -568,45 +663,64 @@ print(f"{'='*50}")
 print(f"File saved to: {out_csv}")
 
 # ==========================================
-# DIAGNOSTIC: FEATURE IMPORTANCE ANALYSIS
+# DIAGNOSTIC: FEATURE IMPORTANCE ANALYSIS (TXT + PNG)
 # ==========================================
 print("\n[Diagnostic] Calculating Permutation Feature Importance...")
 
 feature_names = [
-    "Elo Difference", "Home Squad Sum", "Away Squad Sum",
-    "Home Squad Var", "Away Squad Var", "Home Squad Max", "Away Squad Max",
-    "Home Players >50M", "Away Players >50M", "H2H Goal Diff", "H2H Wins Home",
-    "Home GD Median", "Away GD Median", "Home GD P95", "Away GD P95",
-    "Tournament Multiplier", "Home FIFA Points", "Away FIFA Points", "FIFA Diff"
+    "Elo Diff", "Squad Sum Diff", "Squad Var Diff", "Squad Max Diff",
+    "Count >50M Diff", "H2H Goal Diff", "GD Median Diff", "GD P95 Diff",
+    "Tournament Mult", "FIFA Diff"
 ]
 
 model.eval()
 baseline_loss = 0.0
 with torch.no_grad():
     for batch in val_loader:
-        hid, aid, hseq, aseq, stat, yb, wb = [x.to(device) for x in batch]
-        baseline_loss += criterion(model(hid, aid, hseq, aseq, stat), yb, wb).item()
+        idA, idB, sA, sB, stat, yb, wb = [x.to(device) for x in batch]
+        baseline_loss += criterion(model(idA, idB, sA, sB, stat), yb, wb).item()
 baseline_loss /= len(val_loader)
 
 importance_scores = []
-for i in range(static_dim):
+for i in range(features_scaled.shape[1]):
     shuffled_loss = 0.0
     with torch.no_grad():
         for batch in val_loader:
-            hid, aid, hseq, aseq, stat, yb, wb = [x.to(device) for x in batch]
+            idA, idB, sA, sB, stat, yb, wb = [x.to(device) for x in batch]
             stat_shuffled = stat.clone()
             perm = torch.randperm(stat_shuffled.size(0))
             stat_shuffled[:, i] = stat_shuffled[perm, i]
-            shuffled_loss += criterion(model(hid, aid, hseq, aseq, stat_shuffled), yb, wb).item()
+            shuffled_loss += criterion(model(idA, idB, sA, sB, stat_shuffled), yb, wb).item()
     shuffled_loss /= len(val_loader)
     importance_scores.append(max(0.0, shuffled_loss - baseline_loss))
 
-importance_df = pd.DataFrame({'Feature': feature_names, 'Importance': importance_scores}).sort_values(by='Importance', ascending=True)
+# Create DataFrame
+importance_df = pd.DataFrame({
+    'Feature': feature_names,
+    'Importance': importance_scores
+}).sort_values(by='Importance', ascending=True)
 
+# 1. Save to TXT file
+txt_path = f"{OUTPUT_DIR}feature_importance.txt"
+with open(txt_path, 'w', encoding='utf-8') as f:
+    f.write("=" * 60 + "\n")
+    f.write("FEATURE IMPORTANCE (Permutation Loss Increase)\n")
+    f.write("=" * 60 + "\n")
+    f.write(f"Baseline validation loss: {baseline_loss:.6f}\n\n")
+    f.write(f"{'Feature':<30} {'Importance':>12}\n")
+    f.write("-" * 42 + "\n")
+    for _, row in importance_df.iterrows():
+        f.write(f"{row['Feature']:<30} {row['Importance']:>12.6f}\n")
+    f.write("-" * 42 + "\n")
+    f.write("\nSorted by importance (lowest to highest).\n")
+    f.write("Higher values indicate the feature has a stronger impact on predictions.\n")
+print(f"   Feature importance text saved to: {txt_path}")
+
+# 2. Plot horizontal bar chart (unchanged)
 plt.figure(figsize=(12, 8))
 bars = plt.barh(importance_df['Feature'], importance_df['Importance'], color='#1f77b4', edgecolor='#1d3557', height=0.6)
 plt.axvline(x=0, color='#6c757d', linestyle='--', alpha=0.5)
-plt.title("Feature Importance", fontsize=14, fontweight='black')
+plt.title("Feature Importance (Permutation Loss Increase)", fontsize=14, fontweight='black')
 plt.xlabel("Loss Increase", fontsize=11)
 plt.grid(axis='x', linestyle=':', alpha=0.6)
 for bar in bars:
@@ -616,7 +730,7 @@ for bar in bars:
 plt.tight_layout()
 plt.savefig(f"{OUTPUT_DIR}feature_importance_diagnostics.png", dpi=150)
 plt.close()
-print(f"   Saved to {OUTPUT_DIR}feature_importance_diagnostics.png")
+print(f"   Feature importance chart saved to: {OUTPUT_DIR}feature_importance_diagnostics.png")
 
 gc.collect()
 if torch.cuda.is_available():

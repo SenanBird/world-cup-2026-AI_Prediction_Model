@@ -1,483 +1,108 @@
 ================================================================================
-TEAM FEATURE FACTS FOR ALL WORLD CUP 2026 PARTICIPANTS (using current squad snapshot)
+ELO & SQUAD FACTS FOR ALL WORLD CUP 2026 PARTICIPANTS
 ================================================================================
 
-Team: Algeria
-  Elo Rating: 1855.16
-  FIFA Points: 473.83
-  Squad (top23) Sum (M€): 253.80
-  Squad Max Value (M€): 40.00
-  Squad Var (M€²): 96.46
-  Players valued above 50M: 0
-  Last 10 matches: W7 D1 L2, GF avg 2.00, GA avg 0.60
-  Team Index: 4
 
-Team: Argentina
-  Elo Rating: 2083.60
-  FIFA Points: 1241.45
-  Squad (top23) Sum (M€): 959.00
-  Squad Max Value (M€): 100.00
-  Squad Var (M€²): 667.13
-  Players valued above 50M: 6
-  Last 10 matches: W9 D0 L1, GF avg 2.70, GA avg 0.20
-  Team Index: 13
+================================================================================
+ELO RATINGS (as of 2026-06-01)
+================================================================================
+Algeria: 1854.32
+Argentina: 2080.67
+Australia: 1844.65
+Austria: 1857.51
+Belgium: 1885.15
+Bosnia and Herzegovina: 1611.60
+Brazil: 1969.42
+Canada: 1831.59
+Cape Verde: 1637.57
+Colombia: 1963.74
+Croatia: 1871.78
+Curaçao: 1535.40
+Czech Republic: 1747.90
+DR Congo: 1707.62
+Ecuador: 1891.89
+Egypt: 1782.37
+England: 1971.89
+France: 2013.06
+Germany: 1957.78
+Ghana: 1603.09
+Haiti: 1610.28
+Iran: 1842.73
+Iraq: 1701.57
+Ivory Coast: 1822.46
+Japan: 1944.49
+Jordan: 1689.05
+Mexico: 1908.16
+Morocco: 1949.07
+Netherlands: 1927.17
+New Zealand: 1642.56
+Norway: 1871.32
+Panama: 1715.97
+Paraguay: 1787.19
+Portugal: 1954.95
+Qatar: 1585.00
+Saudi Arabia: 1681.37
+Scotland: 1761.52
+Senegal: 1831.52
+South Africa: 1648.69
+South Korea: 1853.90
+Spain: 2056.33
+Sweden: 1751.36
+Switzerland: 1852.62
+Tunisia: 1675.52
+Turkey: 1851.69
+United States: 1849.97
+Uruguay: 1855.58
+Uzbekistan: 1762.87
 
-Team: Australia
-  Elo Rating: 1839.60
-  FIFA Points: 718.33
-  Squad (top23) Sum (M€): 51.75
-  Squad Max Value (M€): 6.00
-  Squad Var (M€²): 2.80
-  Players valued above 50M: 0
-  Last 10 matches: W5 D1 L4, GF avg 1.40, GA avg 1.00
-  Team Index: 17
-
-Team: Austria
-  Elo Rating: 1846.24
-  FIFA Points: 844.70
-  Squad (top23) Sum (M€): 319.50
-  Squad Max Value (M€): 32.00
-  Squad Var (M€²): 61.95
-  Players valued above 50M: 0
-  Last 10 matches: W8 D1 L1, GF avg 2.60, GA avg 0.50
-  Team Index: 18
-
-Team: Belgium
-  Elo Rating: 1880.35
-  FIFA Points: 1298.32
-  Squad (top23) Sum (M€): 633.00
-  Squad Max Value (M€): 65.00
-  Squad Var (M€²): 174.53
-  Players valued above 50M: 2
-  Last 10 matches: W6 D4 L0, GF avg 3.20, GA avg 0.70
-  Team Index: 28
-
-Team: Bosnia and Herzegovina
-  Elo Rating: 1606.15
-  FIFA Points: 692.93
-  Squad (top23) Sum (M€): 50.00
-  Squad Max Value (M€): 50.00
-  Squad Var (M€²): 0.00
-  Players valued above 50M: 0
-  Last 10 matches: W2 D7 L1, GF avg 1.50, GA avg 1.10
-  Team Index: 36
-
-Team: Brazil
-  Elo Rating: 1971.65
-  FIFA Points: 1430.57
-  Squad (top23) Sum (M€): 1243.00
-  Squad Max Value (M€): 180.00
-  Squad Var (M€²): 1106.50
-  Players valued above 50M: 7
-  Last 10 matches: W5 D2 L3, GF avg 2.30, GA avg 1.20
-  Team Index: 38
-
-Team: Canada
-  Elo Rating: 1823.39
-  FIFA Points: 410.93
-  Squad (top23) Sum (M€): 175.55
-  Squad Max Value (M€): 50.00
-  Squad Var (M€²): 142.64
-  Players valued above 50M: 0
-  Last 10 matches: W3 D6 L1, GF avg 0.90, GA avg 0.50
-  Team Index: 47
-
-Team: Cape Verde
-  Elo Rating: 1642.19
-  FIFA Points: 1500.00
-  Squad (top23) Sum (M€): 63.15
-  Squad Max Value (M€): 18.00
-  Squad Var (M€²): 13.70
-  Players valued above 50M: 0
-  Last 10 matches: W3 D5 L2, GF avg 1.40, GA avg 1.20
-  Team Index: 49
-
-Team: Colombia
-  Elo Rating: 1955.32
-  FIFA Points: 985.97
-  Squad (top23) Sum (M€): 317.50
-  Squad Max Value (M€): 70.00
-  Squad Var (M€²): 198.52
-  Players valued above 50M: 1
-  Last 10 matches: W7 D1 L2, GF avg 2.50, GA avg 1.00
-  Team Index: 61
-
-Team: Croatia
-  Elo Rating: 1880.36
-  FIFA Points: 945.18
-  Squad (top23) Sum (M€): 365.50
-  Squad Max Value (M€): 70.00
-  Squad Var (M€²): 227.39
-  Players valued above 50M: 1
-  Last 10 matches: W7 D1 L2, GF avg 1.90, GA avg 1.00
-  Team Index: 69
-
-Team: Curaçao
-  Elo Rating: 1537.95
-  FIFA Points: 408.27
-  Squad (top23) Sum (M€): 50.00
-  Squad Max Value (M€): 50.00
-  Squad Var (M€²): 0.00
-  Players valued above 50M: 0
-  Last 10 matches: W4 D2 L4, GF avg 2.00, GA avg 2.10
-  Team Index: 71
-
-Team: Czech Republic
-  Elo Rating: 1737.49
-  FIFA Points: 640.70
-  Squad (top23) Sum (M€): 171.50
-  Squad Max Value (M€): 25.00
-  Squad Var (M€²): 38.52
-  Players valued above 50M: 0
-  Last 10 matches: W4 D4 L2, GF avg 2.10, GA avg 1.10
-  Team Index: 73
-
-Team: DR Congo
-  Elo Rating: 1699.82
-  FIFA Points: 705.87
-  Squad (top23) Sum (M€): 149.50
-  Squad Max Value (M€): 28.00
-  Squad Var (M€²): 41.84
-  Players valued above 50M: 0
-  Last 10 matches: W5 D3 L2, GF avg 1.10, GA avg 0.50
-  Team Index: 74
-
-Team: Ecuador
-  Elo Rating: 1897.49
-  FIFA Points: 523.85
-  Squad (top23) Sum (M€): 334.10
-  Squad Max Value (M€): 110.00
-  Squad Var (M€²): 695.78
-  Players valued above 50M: 2
-  Last 10 matches: W4 D5 L1, GF avg 1.20, GA avg 0.60
-  Team Index: 83
-
-Team: Egypt
-  Elo Rating: 1780.39
-  FIFA Points: 649.43
-  Squad (top23) Sum (M€): 133.40
-  Squad Max Value (M€): 65.00
-  Squad Var (M€²): 202.91
-  Players valued above 50M: 1
-  Last 10 matches: W4 D4 L2, GF avg 1.30, GA avg 0.70
-  Team Index: 84
-
-Team: England
-  Elo Rating: 1943.35
-  FIFA Points: 1050.84
-  Squad (top23) Sum (M€): 1665.00
-  Squad Max Value (M€): 160.00
-  Squad Var (M€²): 1313.34
-  Players valued above 50M: 14
-  Last 10 matches: W8 D1 L1, GF avg 2.40, GA avg 0.20
-  Team Index: 88
-
-Team: France
-  Elo Rating: 2005.92
-  FIFA Points: 1198.13
-  Squad (top23) Sum (M€): 1630.00
-  Squad Max Value (M€): 180.00
-  Squad Var (M€²): 1099.21
-  Players valued above 50M: 14
-  Last 10 matches: W8 D1 L1, GF avg 2.60, GA avg 1.00
-  Team Index: 99
-
-Team: Germany
-  Elo Rating: 1942.14
-  FIFA Points: 1558.49
-  Squad (top23) Sum (M€): 1096.00
-  Squad Max Value (M€): 130.00
-  Squad Var (M€²): 724.60
-  Players valued above 50M: 8
-  Last 10 matches: W10 D0 L0, GF avg 3.50, GA avg 0.70
-  Team Index: 107
-
-Team: Ghana
-  Elo Rating: 1580.61
-  FIFA Points: 623.69
-  Squad (top23) Sum (M€): 306.70
-  Squad Max Value (M€): 65.00
-  Squad Var (M€²): 249.16
-  Players valued above 50M: 2
-  Last 10 matches: W3 D2 L5, GF avg 1.10, GA avg 1.40
-  Team Index: 108
-
-Team: Haiti
-  Elo Rating: 1621.64
-  FIFA Points: 321.93
-  Squad (top23) Sum (M€): 56.30
-  Squad Max Value (M€): 18.00
-  Squad Var (M€²): 21.41
-  Players valued above 50M: 0
-  Last 10 matches: W4 D2 L4, GF avg 1.50, GA avg 1.10
-  Team Index: 123
-
-Team: Iran
-  Elo Rating: 1840.38
-  FIFA Points: 708.35
-  Squad (top23) Sum (M€): 41.75
-  Squad Max Value (M€): 8.00
-  Squad Var (M€²): 2.42
-  Players valued above 50M: 0
-  Last 10 matches: W5 D3 L2, GF avg 1.90, GA avg 0.70
-  Team Index: 132
-
-Team: Iraq
-  Elo Rating: 1698.23
-  FIFA Points: 376.70
-  Squad (top23) Sum (M€): 10.60
-  Squad Max Value (M€): 3.00
-  Squad Var (M€²): 0.54
-  Players valued above 50M: 0
-  Last 10 matches: W5 D1 L4, GF avg 1.10, GA avg 1.30
-  Team Index: 133
-
-Team: Ivory Coast
-  Elo Rating: 1821.26
-  FIFA Points: 463.40
-  Squad (top23) Sum (M€): 50.00
-  Squad Max Value (M€): 50.00
-  Squad Var (M€²): 0.00
-  Players valued above 50M: 0
-  Last 10 matches: W8 D1 L1, GF avg 2.00, GA avg 0.70
-  Team Index: 139
-
-Team: Japan
-  Elo Rating: 1934.07
-  FIFA Points: 520.75
-  Squad (top23) Sum (M€): 304.50
-  Squad Max Value (M€): 30.00
-  Squad Var (M€²): 51.72
-  Players valued above 50M: 0
-  Last 10 matches: W6 D3 L1, GF avg 1.50, GA avg 0.80
-  Team Index: 141
-
-Team: Jordan
-  Elo Rating: 1688.54
-  FIFA Points: 296.18
-  Squad (top23) Sum (M€): 6.60
-  Squad Max Value (M€): 6.00
-  Squad Var (M€²): 8.41
-  Players valued above 50M: 0
-  Last 10 matches: W4 D2 L4, GF avg 1.60, GA avg 1.70
-  Team Index: 143
-
-Team: Mexico
-  Elo Rating: 1901.73
-  FIFA Points: 989.44
-  Squad (top23) Sum (M€): 177.50
-  Squad Max Value (M€): 40.00
-  Squad Var (M€²): 66.41
-  Players valued above 50M: 0
-  Last 10 matches: W7 D2 L1, GF avg 1.80, GA avg 0.40
-  Team Index: 181
-
-Team: Morocco
-  Elo Rating: 1938.23
-  FIFA Points: 685.86
-  Squad (top23) Sum (M€): 518.00
-  Squad Max Value (M€): 80.00
-  Squad Var (M€²): 234.44
-  Players valued above 50M: 1
-  Last 10 matches: W6 D4 L0, GF avg 2.00, GA avg 0.40
-  Team Index: 188
-
-Team: Netherlands
-  Elo Rating: 1912.95
-  FIFA Points: 980.98
-  Squad (top23) Sum (M€): 1024.00
-  Squad Max Value (M€): 90.00
-  Squad Var (M€²): 426.17
-  Players valued above 50M: 8
-  Last 10 matches: W6 D3 L1, GF avg 2.30, GA avg 0.90
-  Team Index: 193
-
-Team: New Zealand
-  Elo Rating: 1639.97
-  FIFA Points: 255.78
-  Squad (top23) Sum (M€): 28.82
-  Squad Max Value (M€): 8.00
-  Squad Var (M€²): 2.91
-  Players valued above 50M: 0
-  Last 10 matches: W1 D2 L7, GF avg 0.90, GA avg 1.90
-  Team Index: 195
-
-Team: Norway
-  Elo Rating: 1860.07
-  FIFA Points: 595.99
-  Squad (top23) Sum (M€): 550.00
-  Squad Max Value (M€): 200.00
-  Squad Var (M€²): 1740.15
-  Players valued above 50M: 2
-  Last 10 matches: W6 D3 L1, GF avg 3.40, GA avg 0.90
-  Team Index: 204
-
-Team: Panama
-  Elo Rating: 1747.35
-  FIFA Points: 571.17
-  Squad (top23) Sum (M€): 19.88
-  Squad Max Value (M€): 10.00
-  Squad Var (M€²): 6.44
-  Players valued above 50M: 0
-  Last 10 matches: W4 D4 L2, GF avg 1.80, GA avg 1.60
-  Team Index: 211
-
-Team: Paraguay
-  Elo Rating: 1794.20
-  FIFA Points: 773.18
-  Squad (top23) Sum (M€): 145.00
-  Squad Max Value (M€): 25.00
-  Squad Var (M€²): 36.04
-  Players valued above 50M: 0
-  Last 10 matches: W4 D2 L4, GF avg 1.30, GA avg 1.30
-  Team Index: 214
-
-Team: Portugal
-  Elo Rating: 1957.89
-  FIFA Points: 1273.69
-  Squad (top23) Sum (M€): 1109.00
-  Squad Max Value (M€): 110.00
-  Squad Var (M€²): 621.45
-  Players valued above 50M: 6
-  Last 10 matches: W7 D2 L1, GF avg 2.60, GA avg 0.90
-  Team Index: 219
-
-Team: Qatar
-  Elo Rating: 1568.51
-  FIFA Points: 347.59
-  Squad (top23) Sum (M€): 12.08
-  Squad Max Value (M€): 4.50
-  Squad Var (M€²): 2.12
-  Players valued above 50M: 0
-  Last 10 matches: W1 D4 L5, GF avg 0.60, GA avg 1.40
-  Team Index: 222
-
-Team: Saudi Arabia
-  Elo Rating: 1674.38
-  FIFA Points: 465.28
-  Squad (top23) Sum (M€): 9.08
-  Squad Max Value (M€): 3.00
-  Squad Var (M€²): 0.65
-  Players valued above 50M: 0
-  Last 10 matches: W3 D2 L5, GF avg 1.10, GA avg 1.30
-  Team Index: 245
-
-Team: Scotland
-  Elo Rating: 1752.05
-  FIFA Points: 659.61
-  Squad (top23) Sum (M€): 281.50
-  Squad Max Value (M€): 45.00
-  Squad Var (M€²): 108.45
-  Players valued above 50M: 0
-  Last 10 matches: W7 D0 L3, GF avg 2.20, GA avg 1.00
-  Team Index: 247
-
-Team: Senegal
-  Elo Rating: 1834.39
-  FIFA Points: 837.98
-  Squad (top23) Sum (M€): 435.50
-  Squad Max Value (M€): 45.00
-  Squad Var (M€²): 160.46
-  Players valued above 50M: 0
-  Last 10 matches: W6 D1 L3, GF avg 1.60, GA avg 1.10
-  Team Index: 250
-
-Team: South Africa
-  Elo Rating: 1639.38
-  FIFA Points: 427.68
-  Squad (top23) Sum (M€): 31.27
-  Squad Max Value (M€): 13.00
-  Squad Var (M€²): 6.59
-  Players valued above 50M: 0
-  Last 10 matches: W4 D2 L4, GF avg 1.20, GA avg 1.20
-  Team Index: 263
-
-Team: South Korea
-  Elo Rating: 1845.02
-  FIFA Points: 543.67
-  Squad (top23) Sum (M€): 50.00
-  Squad Max Value (M€): 50.00
-  Squad Var (M€²): 0.00
-  Players valued above 50M: 0
-  Last 10 matches: W6 D1 L3, GF avg 1.50, GA avg 1.30
-  Team Index: 264
-
-Team: Spain
-  Elo Rating: 2048.94
-  FIFA Points: 1125.50
-  Squad (top23) Sum (M€): 1165.00
-  Squad Max Value (M€): 120.00
-  Squad Var (M€²): 414.33
-  Players valued above 50M: 8
-  Last 10 matches: W6 D4 L0, GF avg 2.50, GA avg 0.40
-  Team Index: 267
-
-Team: Sweden
-  Elo Rating: 1743.36
-  FIFA Points: 879.90
-  Squad (top23) Sum (M€): 575.50
-  Squad Max Value (M€): 120.00
-  Squad Var (M€²): 731.60
-  Players valued above 50M: 2
-  Last 10 matches: W3 D2 L5, GF avg 1.60, GA avg 1.90
-  Team Index: 272
-
-Team: Switzerland
-  Elo Rating: 1844.92
-  FIFA Points: 1198.72
-  Squad (top23) Sum (M€): 321.20
-  Squad Max Value (M€): 40.00
-  Squad Var (M€²): 135.57
-  Players valued above 50M: 0
-  Last 10 matches: W4 D5 L1, GF avg 1.90, GA avg 0.90
-  Team Index: 273
-
-Team: Tunisia
-  Elo Rating: 1678.75
-  FIFA Points: 909.91
-  Squad (top23) Sum (M€): 68.60
-  Squad Max Value (M€): 9.00
-  Squad Var (M€²): 5.64
-  Players valued above 50M: 0
-  Last 10 matches: W3 D3 L4, GF avg 1.20, GA avg 1.70
-  Team Index: 290
-
-Team: Turkey
-  Elo Rating: 1847.00
-  FIFA Points: 706.39
-  Squad (top23) Sum (M€): 18.55
-  Squad Max Value (M€): 1.50
-  Squad Var (M€²): 0.10
-  Players valued above 50M: 0
-  Last 10 matches: W7 D1 L2, GF avg 2.20, GA avg 1.30
-  Team Index: 291
-
-Team: United States
-  Elo Rating: 1819.19
-  FIFA Points: 872.68
-  Squad (top23) Sum (M€): 425.00
-  Squad Max Value (M€): 60.00
-  Squad Var (M€²): 148.62
-  Players valued above 50M: 1
-  Last 10 matches: W6 D1 L3, GF avg 2.20, GA avg 1.60
-  Team Index: 300
-
-Team: Uruguay
-  Elo Rating: 1860.60
-  FIFA Points: 1018.41
-  Squad (top23) Sum (M€): 522.00
-  Squad Max Value (M€): 120.00
-  Squad Var (M€²): 767.58
-  Players valued above 50M: 3
-  Last 10 matches: W4 D5 L1, GF avg 1.10, GA avg 0.80
-  Team Index: 302
-
-Team: Uzbekistan
-  Elo Rating: 1765.78
-  FIFA Points: 353.91
-  Squad (top23) Sum (M€): 61.43
-  Squad Max Value (M€): 35.00
-  Squad Var (M€²): 52.25
-  Players valued above 50M: 0
-  Last 10 matches: W4 D3 L3, GF avg 1.40, GA avg 0.90
-  Team Index: 303
+================================================================================
+CURRENT SQUAD SUMS (M€)
+================================================================================
+Algeria: 253.80
+Argentina: 959.00
+Australia: 51.75
+Austria: 319.50
+Belgium: 633.00
+Bosnia and Herzegovina: 50.00
+Brazil: 1243.00
+Canada: 175.55
+Cape Verde: 63.15
+Colombia: 317.50
+Croatia: 365.50
+Curaçao: 50.00
+Czech Republic: 171.50
+DR Congo: 149.50
+Ecuador: 334.10
+Egypt: 133.40
+England: 1665.00
+France: 1630.00
+Germany: 1096.00
+Ghana: 306.70
+Haiti: 56.30
+Iran: 41.75
+Iraq: 10.60
+Ivory Coast: 50.00
+Japan: 304.50
+Jordan: 6.60
+Mexico: 177.50
+Morocco: 518.00
+Netherlands: 1024.00
+New Zealand: 28.82
+Norway: 550.00
+Panama: 19.88
+Paraguay: 145.00
+Portugal: 1109.00
+Qatar: 12.08
+Saudi Arabia: 9.08
+Scotland: 281.50
+Senegal: 435.50
+South Africa: 31.27
+South Korea: 50.00
+Spain: 1165.00
+Sweden: 575.50
+Switzerland: 321.20
+Tunisia: 68.60
+Turkey: 18.55
+United States: 425.00
+Uruguay: 522.00
+Uzbekistan: 61.43
