@@ -94,6 +94,7 @@ double poisson(int k, double lambda) {
     return (pow(lambda, k) * exp(-lambda)) / factorial(k);
 }
 
+
 void calculateMatchProbabilities(MatchPrediction& match) {
     if (match.isPlayed == 1) {
         if (match.homeXg > match.awayXg) { match.homeWinProb = 1.0; match.drawProb = 0.0; match.awayWinProb = 0.0; }
@@ -103,15 +104,35 @@ void calculateMatchProbabilities(MatchPrediction& match) {
     }
 
     match.homeWinProb = 0.0; match.drawProb = 0.0; match.awayWinProb = 0.0;
+    
+    // Dixon-Coles parameter capturing low score dependence optimization
+    const double rho = -0.12; 
+
     for (int h = 0; h <= 15; ++h) {
         for (int a = 0; a <= 15; ++a) {
-            double prob = poisson(h, match.homeXg) * poisson(a, match.awayXg);
-            if (h > a) match.homeWinProb += prob;
-            else if (h < a) match.awayWinProb += prob;
-            else match.drawProb += prob;
+            double p_home = poisson(h, match.homeXg);
+            double p_away = poisson(a, match.awayXg);
+            double prob = p_home * p_away;
+
+            // Apply Dixon-Coles correction matrix to low scores
+            if (h == 0 && a == 0)      prob *= (1.0 - match.homeXg * match.awayXg * rho);
+            else if (h == 1 && a == 0) prob *= (1.0 + match.homeXg * rho);
+            else if (h == 0 && a == 1) prob *= (1.0 + match.awayXg * rho);
+            else if (h == 1 && a == 1) prob *= (1.0 - rho);
+
+            if (h > a)       match.homeWinProb += prob;
+            else if (h < a)  match.awayWinProb += prob;
+            else             match.drawProb += prob;
         }
     }
+    
+    // Normalize probabilities to perfectly sum to 1.0 due to structural adjustment
+    double totalProb = match.homeWinProb + match.drawProb + match.awayWinProb;
+    match.homeWinProb /= totalProb;
+    match.drawProb /= totalProb;
+    match.awayWinProb /= totalProb;
 }
+
 
 vector<ScoreProb> getTopScorelines(const MatchPrediction& match, int topN = 3) {
     if (match.isPlayed == 1) {

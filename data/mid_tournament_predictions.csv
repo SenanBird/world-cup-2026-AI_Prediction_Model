@@ -23,51 +23,51 @@ K,Portugal,DR Congo,1.0,1.0,1
 K,Uzbekistan,Colombia,1.0,3.0,1
 L,England,Croatia,4.0,2.0,1
 L,Ghana,Panama,1.0,0.0,1
-A,Czech Republic,South Africa,1.32,0.82,0
-A,Mexico,South Korea,1.4,0.85,0
-B,Switzerland,Bosnia and Herzegovina,1.39,0.81,0
-B,Canada,Qatar,1.24,1.03,0
-C,Scotland,Morocco,0.74,1.26,0
-C,Brazil,Haiti,3.54,0.3,0
-D,United States,Australia,2.41,1.08,0
-D,Turkey,Paraguay,1.19,1.02,0
-E,Germany,Ivory Coast,2.76,1.67,0
-E,Ecuador,Curaçao,3.59,0.63,0
-F,Netherlands,Sweden,1.63,1.12,0
-F,Tunisia,Japan,0.72,1.98,0
-G,Belgium,Iran,1.71,0.89,0
-G,New Zealand,Egypt,0.52,2.27,0
-H,Spain,Saudi Arabia,2.61,0.57,0
-H,Uruguay,Cape Verde,1.85,0.72,0
-I,France,Iraq,2.4,0.37,0
-I,Norway,Senegal,0.68,1.27,0
-J,Argentina,Austria,1.49,0.98,0
-J,Jordan,Algeria,0.8,1.74,0
-K,Portugal,Uzbekistan,2.04,0.57,0
-K,Colombia,DR Congo,2.33,0.49,0
-L,England,Ghana,1.92,0.51,0
-L,Panama,Croatia,0.47,2.12,0
-A,Mexico,Czech Republic,0.99,1.19,0
-A,South Africa,South Korea,0.74,1.24,0
-B,Canada,Switzerland,0.84,1.85,0
-B,Bosnia and Herzegovina,Qatar,1.93,0.81,0
-C,Scotland,Brazil,0.48,1.94,0
-C,Morocco,Haiti,2.36,0.52,0
-D,United States,Turkey,1.78,1.25,0
-D,Paraguay,Australia,1.21,1.41,0
-E,Curaçao,Ivory Coast,0.5,3.35,0
-E,Ecuador,Germany,1.25,1.69,0
-F,Japan,Sweden,1.47,1.1,0
-F,Tunisia,Netherlands,0.73,2.01,0
-G,Egypt,Iran,1.03,1.13,0
-G,New Zealand,Belgium,0.57,3.04,0
-H,Cape Verde,Saudi Arabia,1.21,1.3,0
-H,Uruguay,Spain,1.0,1.87,0
-I,Norway,France,0.8,2.35,0
-I,Senegal,Iraq,1.71,0.52,0
-J,Algeria,Austria,1.08,1.38,0
-J,Jordan,Argentina,0.61,2.16,0
-K,Colombia,Portugal,0.91,1.04,0
-K,DR Congo,Uzbekistan,1.09,1.48,0
-L,Panama,England,0.35,2.82,0
-L,Croatia,Ghana,1.77,0.62,0
+A,Czech Republic,South Africa,1.0,1.0,1
+A,Mexico,South Korea,1.0,0.0,1
+B,Switzerland,Bosnia and Herzegovina,4.0,1.0,1
+B,Canada,Qatar,6.0,0.0,1
+C,Scotland,Morocco,0.67,1.55,0
+C,Brazil,Haiti,3.73,0.21,0
+D,United States,Australia,2.03,0.89,0
+D,Turkey,Paraguay,1.89,0.94,0
+E,Germany,Ivory Coast,2.31,1.1,0
+E,Ecuador,Curaçao,4.61,0.18,0
+F,Netherlands,Sweden,1.89,1.01,0
+F,Tunisia,Japan,0.69,1.92,0
+G,Belgium,Iran,1.56,0.91,0
+G,New Zealand,Egypt,0.68,2.37,0
+H,Spain,Saudi Arabia,2.78,0.54,0
+H,Uruguay,Cape Verde,2.04,0.59,0
+I,France,Iraq,2.37,0.4,0
+I,Norway,Senegal,0.87,1.33,0
+J,Argentina,Austria,2.03,1.05,0
+J,Jordan,Algeria,0.84,1.85,0
+K,Portugal,Uzbekistan,2.69,0.57,0
+K,Colombia,DR Congo,1.95,0.51,0
+L,England,Ghana,1.65,0.67,0
+L,Panama,Croatia,0.53,2.21,0
+A,Mexico,Czech Republic,1.61,0.87,0
+A,South Africa,South Korea,0.69,1.1,0
+B,Canada,Switzerland,0.6,1.91,0
+B,Bosnia and Herzegovina,Qatar,1.56,0.84,0
+C,Scotland,Brazil,0.48,2.1,0
+C,Morocco,Haiti,2.68,0.34,0
+D,United States,Turkey,1.24,1.38,0
+D,Paraguay,Australia,1.19,1.29,0
+E,Curaçao,Ivory Coast,0.13,4.73,0
+E,Ecuador,Germany,1.23,2.16,0
+F,Japan,Sweden,1.1,1.45,0
+F,Tunisia,Netherlands,0.76,2.44,0
+G,Egypt,Iran,0.91,0.99,0
+G,New Zealand,Belgium,0.62,2.8,0
+H,Cape Verde,Saudi Arabia,1.12,0.97,0
+H,Uruguay,Spain,1.1,1.76,0
+I,Norway,France,0.98,2.05,0
+I,Senegal,Iraq,1.83,0.54,0
+J,Algeria,Austria,1.15,1.7,0
+J,Jordan,Argentina,0.42,3.13,0
+K,Colombia,Portugal,0.87,1.44,0
+K,DR Congo,Uzbekistan,1.09,1.28,0
+L,Panama,England,0.37,2.53,0
+L,Croatia,Ghana,1.58,0.66,0
