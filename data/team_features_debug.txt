@@ -8,50 +8,50 @@ ELO RATINGS (as of 2026-06-01)
 ================================================================================
 Algeria: 1854.32
 Argentina: 2080.67
-Australia: 1844.65
+Australia: 1825.74
 Austria: 1857.51
 Belgium: 1885.15
 Bosnia and Herzegovina: 1603.29
-Brazil: 1969.42
+Brazil: 1974.10
 Canada: 1840.32
 Cape Verde: 1637.57
 Colombia: 1963.74
 Croatia: 1871.78
-Curaçao: 1535.40
+Curaçao: 1547.75
 Czech Republic: 1743.45
 DR Congo: 1707.62
-Ecuador: 1891.89
+Ecuador: 1879.54
 Egypt: 1782.37
 England: 1971.89
 France: 2013.06
-Germany: 1957.78
+Germany: 1968.86
 Ghana: 1603.09
-Haiti: 1610.28
+Haiti: 1605.61
 Iran: 1842.73
 Iraq: 1701.57
-Ivory Coast: 1822.46
-Japan: 1944.49
+Ivory Coast: 1811.39
+Japan: 1952.34
 Jordan: 1689.05
 Mexico: 1923.03
-Morocco: 1949.07
-Netherlands: 1927.17
+Morocco: 1957.99
+Netherlands: 1939.11
 New Zealand: 1642.56
 Norway: 1871.32
 Panama: 1715.97
-Paraguay: 1787.19
+Paraguay: 1808.02
 Portugal: 1954.95
 Qatar: 1576.28
 Saudi Arabia: 1681.37
-Scotland: 1761.52
+Scotland: 1752.59
 Senegal: 1831.52
 South Africa: 1653.14
 South Korea: 1839.02
 Spain: 2056.33
-Sweden: 1751.36
+Sweden: 1739.42
 Switzerland: 1860.94
-Tunisia: 1675.52
-Turkey: 1851.69
-United States: 1849.97
+Tunisia: 1667.67
+Turkey: 1830.86
+United States: 1868.87
 Uruguay: 1855.58
 Uzbekistan: 1762.87
 

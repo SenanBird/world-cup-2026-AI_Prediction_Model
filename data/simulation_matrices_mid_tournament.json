@@ -1,5 +1,5 @@
 {
-  "simulation_date": "Jun 20 2026 04:57:14",
+  "simulation_date": "Jun 21 2026 14:01:24",
   "groups": {
     "A": {
       "matches": [
@@ -58,73 +58,73 @@
         {
           "home": "Mexico",
           "away": "Czech Republic",
-          "home_win_prob": 0.525082,
-          "draw_prob": 0.278788,
-          "away_win_prob": 0.196130,
-          "home_xg": 1.610000,
-          "away_xg": 0.870000,
+          "home_win_prob": 0.452633,
+          "draw_prob": 0.276000,
+          "away_win_prob": 0.271366,
+          "home_xg": 1.600000,
+          "away_xg": 1.180000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.134827 },
-            { "score": "1-1", "prob": 0.117299 },
-            { "score": "2-0", "prob": 0.108535 }
+            { "score": "1-1", "prob": 0.117129 },
+            { "score": "1-0", "prob": 0.099262 },
+            { "score": "2-1", "prob": 0.093703 }
           ]
         },
         {
           "home": "South Africa",
           "away": "South Korea",
-          "home_win_prob": 0.219945,
-          "draw_prob": 0.351453,
-          "away_win_prob": 0.428603,
-          "home_xg": 0.690000,
-          "away_xg": 1.100000,
+          "home_win_prob": 0.259699,
+          "draw_prob": 0.353939,
+          "away_win_prob": 0.386361,
+          "home_xg": 0.790000,
+          "away_xg": 1.040000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.183656 },
-            { "score": "0-0", "prob": 0.166960 },
-            { "score": "1-1", "prob": 0.126723 }
+            { "score": "0-1", "prob": 0.166830 },
+            { "score": "0-0", "prob": 0.160414 },
+            { "score": "1-1", "prob": 0.131796 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Mexico",
-          "expected_points": 7.85,
+          "expected_points": 7.63,
           "probabilities": {
-            "1st": 0.96,
-            "2nd": 0.04,
+            "1st": 0.95,
+            "2nd": 0.05,
             "3rd": 0.00,
             "4th": 0.00
           }
         },
         {
           "team": "South Korea",
-          "expected_points": 4.64,
+          "expected_points": 4.51,
           "probabilities": {
-            "1st": 0.04,
-            "2nd": 0.67,
-            "3rd": 0.24,
-            "4th": 0.05
+            "1st": 0.05,
+            "2nd": 0.59,
+            "3rd": 0.28,
+            "4th": 0.08
           }
         },
         {
           "team": "South Africa",
-          "expected_points": 2.01,
+          "expected_points": 2.13,
           "probabilities": {
             "1st": 0.00,
-            "2nd": 0.18,
-            "3rd": 0.26,
-            "4th": 0.56
+            "2nd": 0.20,
+            "3rd": 0.25,
+            "4th": 0.55
           }
         },
         {
           "team": "Czech Republic",
-          "expected_points": 1.87,
+          "expected_points": 2.09,
           "probabilities": {
             "1st": 0.00,
-            "2nd": 0.11,
-            "3rd": 0.50,
-            "4th": 0.40
+            "2nd": 0.16,
+            "3rd": 0.46,
+            "4th": 0.38
           }
         }
       ]
@@ -186,73 +186,73 @@
         {
           "home": "Canada",
           "away": "Switzerland",
-          "home_win_prob": 0.106415,
-          "draw_prob": 0.230954,
-          "away_win_prob": 0.662631,
-          "home_xg": 0.600000,
-          "away_xg": 1.910000,
+          "home_win_prob": 0.147146,
+          "draw_prob": 0.252790,
+          "away_win_prob": 0.600064,
+          "home_xg": 0.750000,
+          "away_xg": 1.800000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.155222 },
-            { "score": "0-2", "prob": 0.148237 },
-            { "score": "0-3", "prob": 0.094378 }
+            { "score": "0-1", "prob": 0.140547 },
+            { "score": "0-2", "prob": 0.126492 },
+            { "score": "1-1", "prob": 0.105410 }
           ]
         },
         {
           "home": "Bosnia and Herzegovina",
           "away": "Qatar",
-          "home_win_prob": 0.519751,
-          "draw_prob": 0.284837,
-          "away_win_prob": 0.195412,
-          "home_xg": 1.560000,
-          "away_xg": 0.840000,
+          "home_win_prob": 0.410166,
+          "draw_prob": 0.296554,
+          "away_win_prob": 0.293280,
+          "home_xg": 1.390000,
+          "away_xg": 1.130000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.141520 },
-            { "score": "1-1", "prob": 0.118877 },
-            { "score": "2-0", "prob": 0.110386 }
+            { "score": "1-1", "prob": 0.126378 },
+            { "score": "1-0", "prob": 0.111839 },
+            { "score": "0-1", "prob": 0.090919 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Switzerland",
-          "expected_points": 6.22,
+          "expected_points": 6.05,
           "probabilities": {
-            "1st": 0.69,
-            "2nd": 0.31,
+            "1st": 0.63,
+            "2nd": 0.37,
             "3rd": 0.00,
             "4th": 0.00
           }
         },
         {
           "team": "Canada",
-          "expected_points": 4.55,
+          "expected_points": 4.69,
           "probabilities": {
-            "1st": 0.31,
-            "2nd": 0.68,
+            "1st": 0.37,
+            "2nd": 0.62,
             "3rd": 0.00,
             "4th": 0.00
           }
         },
         {
           "team": "Bosnia and Herzegovina",
-          "expected_points": 2.84,
+          "expected_points": 2.53,
           "probabilities": {
             "1st": 0.00,
             "2nd": 0.00,
-            "3rd": 0.79,
-            "4th": 0.20
+            "3rd": 0.69,
+            "4th": 0.31
           }
         },
         {
           "team": "Qatar",
-          "expected_points": 1.87,
+          "expected_points": 2.18,
           "probabilities": {
             "1st": 0.00,
             "2nd": 0.00,
-            "3rd": 0.20,
-            "4th": 0.80
+            "3rd": 0.31,
+            "4th": 0.69
           }
         }
       ]
@@ -288,103 +288,99 @@
         {
           "home": "Scotland",
           "away": "Morocco",
-          "home_win_prob": 0.155695,
-          "draw_prob": 0.284229,
-          "away_win_prob": 0.560076,
-          "home_xg": 0.670000,
-          "away_xg": 1.550000,
-          "is_played": 0,
+          "home_win_prob": 0.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 1.000000,
+          "home_xg": 0.000000,
+          "away_xg": 1.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.168344 },
-            { "score": "0-2", "prob": 0.130467 },
-            { "score": "1-1", "prob": 0.112791 }
+            { "score": "0-1", "prob": 1.000000 }
           ]
         },
         {
           "home": "Brazil",
           "away": "Haiti",
-          "home_win_prob": 0.950582,
-          "draw_prob": 0.042833,
-          "away_win_prob": 0.006585,
-          "home_xg": 3.730000,
-          "away_xg": 0.210000,
-          "is_played": 0,
+          "home_win_prob": 1.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 0.000000,
+          "home_xg": 3.000000,
+          "away_xg": 0.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "3-0", "prob": 0.168211 },
-            { "score": "4-0", "prob": 0.156857 },
-            { "score": "2-0", "prob": 0.135291 }
+            { "score": "3-0", "prob": 1.000000 }
           ]
         },
         {
           "home": "Scotland",
           "away": "Brazil",
-          "home_win_prob": 0.071740,
-          "draw_prob": 0.196725,
-          "away_win_prob": 0.731535,
-          "home_xg": 0.480000,
-          "away_xg": 2.100000,
+          "home_win_prob": 0.146005,
+          "draw_prob": 0.314848,
+          "away_win_prob": 0.539147,
+          "home_xg": 0.540000,
+          "away_xg": 1.340000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.167082 },
-            { "score": "0-1", "prob": 0.159125 },
-            { "score": "0-3", "prob": 0.116957 }
+            { "score": "0-1", "prob": 0.204471 },
+            { "score": "0-0", "prob": 0.152590 },
+            { "score": "0-2", "prob": 0.136995 }
           ]
         },
         {
           "home": "Morocco",
           "away": "Haiti",
-          "home_win_prob": 0.851140,
-          "draw_prob": 0.118972,
-          "away_win_prob": 0.029888,
-          "home_xg": 2.680000,
-          "away_xg": 0.340000,
+          "home_win_prob": 0.817616,
+          "draw_prob": 0.146290,
+          "away_win_prob": 0.036093,
+          "home_xg": 2.380000,
+          "away_xg": 0.320000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "2-0", "prob": 0.175255 },
-            { "score": "3-0", "prob": 0.156561 },
-            { "score": "1-0", "prob": 0.130787 }
+            { "score": "2-0", "prob": 0.190339 },
+            { "score": "1-0", "prob": 0.159949 },
+            { "score": "3-0", "prob": 0.151003 }
           ]
         }
       ],
       "table_probabilities": [
         {
-          "team": "Brazil",
-          "expected_points": 6.29,
+          "team": "Morocco",
+          "expected_points": 6.60,
           "probabilities": {
-            "1st": 0.66,
-            "2nd": 0.27,
-            "3rd": 0.07,
+            "1st": 0.44,
+            "2nd": 0.55,
+            "3rd": 0.01,
             "4th": 0.00
           }
         },
         {
-          "team": "Morocco",
-          "expected_points": 5.64,
+          "team": "Brazil",
+          "expected_points": 5.93,
           "probabilities": {
-            "1st": 0.27,
-            "2nd": 0.54,
-            "3rd": 0.18,
-            "4th": 0.01
+            "1st": 0.54,
+            "2nd": 0.32,
+            "3rd": 0.14,
+            "4th": 0.00
           }
         },
         {
           "team": "Scotland",
-          "expected_points": 4.16,
+          "expected_points": 3.75,
           "probabilities": {
-            "1st": 0.07,
-            "2nd": 0.19,
-            "3rd": 0.73,
-            "4th": 0.01
+            "1st": 0.02,
+            "2nd": 0.13,
+            "3rd": 0.84,
+            "4th": 0.00
           }
         },
         {
           "team": "Haiti",
-          "expected_points": 0.27,
+          "expected_points": 0.25,
           "probabilities": {
             "1st": 0.00,
             "2nd": 0.00,
-            "3rd": 0.02,
-            "4th": 0.98
+            "3rd": 0.00,
+            "4th": 1.00
           }
         }
       ]
@@ -420,103 +416,99 @@
         {
           "home": "United States",
           "away": "Australia",
-          "home_win_prob": 0.616974,
-          "draw_prob": 0.230622,
-          "away_win_prob": 0.152403,
-          "home_xg": 2.030000,
-          "away_xg": 0.890000,
-          "is_played": 0,
+          "home_win_prob": 1.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 0.000000,
+          "home_xg": 2.000000,
+          "away_xg": 0.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "2-0", "prob": 0.111128 },
-            { "score": "1-0", "prob": 0.109485 },
-            { "score": "2-1", "prob": 0.098904 }
+            { "score": "2-0", "prob": 1.000000 }
           ]
         },
         {
           "home": "Turkey",
           "away": "Paraguay",
-          "home_win_prob": 0.574800,
-          "draw_prob": 0.247453,
-          "away_win_prob": 0.177747,
-          "home_xg": 1.890000,
-          "away_xg": 0.940000,
-          "is_played": 0,
+          "home_win_prob": 0.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 1.000000,
+          "home_xg": 0.000000,
+          "away_xg": 1.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.111534 },
-            { "score": "2-0", "prob": 0.105400 },
-            { "score": "1-1", "prob": 0.104842 }
+            { "score": "0-1", "prob": 1.000000 }
           ]
         },
         {
           "home": "United States",
           "away": "Turkey",
-          "home_win_prob": 0.322973,
-          "draw_prob": 0.291923,
-          "away_win_prob": 0.385105,
-          "home_xg": 1.240000,
-          "away_xg": 1.380000,
+          "home_win_prob": 0.323562,
+          "draw_prob": 0.298826,
+          "away_win_prob": 0.377612,
+          "home_xg": 1.200000,
+          "away_xg": 1.320000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.124580 },
-            { "score": "0-1", "prob": 0.100468 },
-            { "score": "1-0", "prob": 0.090276 }
+            { "score": "1-1", "prob": 0.127448 },
+            { "score": "0-1", "prob": 0.106207 },
+            { "score": "1-0", "prob": 0.096552 }
           ]
         },
         {
           "home": "Paraguay",
           "away": "Australia",
-          "home_win_prob": 0.326444,
-          "draw_prob": 0.301791,
-          "away_win_prob": 0.371765,
-          "home_xg": 1.190000,
-          "away_xg": 1.290000,
+          "home_win_prob": 0.404944,
+          "draw_prob": 0.304419,
+          "away_win_prob": 0.290637,
+          "home_xg": 1.330000,
+          "away_xg": 1.080000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.128554 },
-            { "score": "0-1", "prob": 0.108029 },
-            { "score": "1-0", "prob": 0.099654 }
+            { "score": "1-1", "prob": 0.129011 },
+            { "score": "1-0", "prob": 0.119454 },
+            { "score": "0-1", "prob": 0.097001 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "United States",
-          "expected_points": 6.34,
+          "expected_points": 7.27,
           "probabilities": {
-            "1st": 0.71,
-            "2nd": 0.18,
-            "3rd": 0.10,
-            "4th": 0.01
-          }
-        },
-        {
-          "team": "Australia",
-          "expected_points": 5.10,
-          "probabilities": {
-            "1st": 0.21,
-            "2nd": 0.46,
-            "3rd": 0.27,
-            "4th": 0.05
-          }
-        },
-        {
-          "team": "Turkey",
-          "expected_points": 3.42,
-          "probabilities": {
-            "1st": 0.07,
-            "2nd": 0.25,
-            "3rd": 0.44,
-            "4th": 0.24
+            "1st": 0.99,
+            "2nd": 0.01,
+            "3rd": 0.00,
+            "4th": 0.00
           }
         },
         {
           "team": "Paraguay",
-          "expected_points": 2.06,
+          "expected_points": 4.52,
+          "probabilities": {
+            "1st": 0.00,
+            "2nd": 0.42,
+            "3rd": 0.46,
+            "4th": 0.12
+          }
+        },
+        {
+          "team": "Australia",
+          "expected_points": 4.18,
           "probabilities": {
             "1st": 0.01,
-            "2nd": 0.10,
+            "2nd": 0.57,
+            "3rd": 0.35,
+            "4th": 0.07
+          }
+        },
+        {
+          "team": "Turkey",
+          "expected_points": 1.43,
+          "probabilities": {
+            "1st": 0.00,
+            "2nd": 0.00,
             "3rd": 0.19,
-            "4th": 0.69
+            "4th": 0.81
           }
         }
       ]
@@ -552,103 +544,99 @@
         {
           "home": "Germany",
           "away": "Ivory Coast",
-          "home_win_prob": 0.626889,
-          "draw_prob": 0.209409,
-          "away_win_prob": 0.163702,
-          "home_xg": 2.310000,
-          "away_xg": 1.100000,
-          "is_played": 0,
+          "home_win_prob": 1.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 0.000000,
+          "home_xg": 2.000000,
+          "away_xg": 1.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "2-1", "prob": 0.096971 },
-            { "score": "2-0", "prob": 0.088156 },
-            { "score": "1-1", "prob": 0.083958 }
+            { "score": "2-1", "prob": 1.000000 }
           ]
         },
         {
           "home": "Ecuador",
           "away": "Curaçao",
-          "home_win_prob": 0.978786,
-          "draw_prob": 0.018804,
-          "away_win_prob": 0.002410,
-          "home_xg": 4.610000,
-          "away_xg": 0.180000,
-          "is_played": 0,
+          "home_win_prob": 0.000000,
+          "draw_prob": 1.000000,
+          "away_win_prob": 0.000000,
+          "home_xg": 0.000000,
+          "away_xg": 0.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "4-0", "prob": 0.156431 },
-            { "score": "5-0", "prob": 0.144229 },
-            { "score": "3-0", "prob": 0.135732 }
+            { "score": "0-0", "prob": 1.000000 }
           ]
         },
         {
           "home": "Curaçao",
           "away": "Ivory Coast",
-          "home_win_prob": 0.001447,
-          "draw_prob": 0.014735,
-          "away_win_prob": 0.983818,
-          "home_xg": 0.130000,
-          "away_xg": 4.730000,
+          "home_win_prob": 0.007360,
+          "draw_prob": 0.045902,
+          "away_win_prob": 0.946738,
+          "home_xg": 0.220000,
+          "away_xg": 3.670000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-4", "prob": 0.161645 },
-            { "score": "0-5", "prob": 0.152916 },
-            { "score": "0-3", "prob": 0.136698 }
+            { "score": "0-3", "prob": 0.168439 },
+            { "score": "0-4", "prob": 0.154542 },
+            { "score": "0-2", "prob": 0.137688 }
           ]
         },
         {
           "home": "Ecuador",
           "away": "Germany",
-          "home_win_prob": 0.205171,
-          "draw_prob": 0.225843,
-          "away_win_prob": 0.568986,
-          "home_xg": 1.230000,
-          "away_xg": 2.160000,
+          "home_win_prob": 0.342495,
+          "draw_prob": 0.236993,
+          "away_win_prob": 0.420512,
+          "home_xg": 1.730000,
+          "away_xg": 1.930000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-2", "prob": 0.096722 },
-            { "score": "1-1", "prob": 0.089557 },
-            { "score": "0-2", "prob": 0.078636 }
+            { "score": "1-1", "prob": 0.085918 },
+            { "score": "1-2", "prob": 0.082911 },
+            { "score": "2-1", "prob": 0.074319 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Germany",
-          "expected_points": 7.02,
+          "expected_points": 7.50,
           "probabilities": {
-            "1st": 0.70,
-            "2nd": 0.21,
-            "3rd": 0.09,
+            "1st": 0.95,
+            "2nd": 0.05,
+            "3rd": 0.00,
             "4th": 0.00
           }
         },
         {
           "team": "Ivory Coast",
-          "expected_points": 6.67,
+          "expected_points": 5.89,
           "probabilities": {
-            "1st": 0.27,
-            "2nd": 0.64,
-            "3rd": 0.09,
+            "1st": 0.05,
+            "2nd": 0.93,
+            "3rd": 0.02,
             "4th": 0.00
           }
         },
         {
           "team": "Ecuador",
-          "expected_points": 3.80,
+          "expected_points": 2.26,
           "probabilities": {
-            "1st": 0.03,
-            "2nd": 0.15,
-            "3rd": 0.82,
-            "4th": 0.00
+            "1st": 0.00,
+            "2nd": 0.01,
+            "3rd": 0.96,
+            "4th": 0.02
           }
         },
         {
           "team": "Curaçao",
-          "expected_points": 0.05,
+          "expected_points": 1.07,
           "probabilities": {
             "1st": 0.00,
             "2nd": 0.00,
-            "3rd": 0.00,
-            "4th": 1.00
+            "3rd": 0.02,
+            "4th": 0.97
           }
         }
       ]
@@ -684,103 +672,99 @@
         {
           "home": "Netherlands",
           "away": "Sweden",
-          "home_win_prob": 0.558715,
-          "draw_prob": 0.248663,
-          "away_win_prob": 0.192621,
-          "home_xg": 1.890000,
-          "away_xg": 1.010000,
-          "is_played": 0,
+          "home_win_prob": 1.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 0.000000,
+          "home_xg": 5.000000,
+          "away_xg": 1.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.105034 },
-            { "score": "1-0", "prob": 0.103994 },
-            { "score": "2-1", "prob": 0.099257 }
+            { "score": "5-1", "prob": 1.000000 }
           ]
         },
         {
           "home": "Tunisia",
           "away": "Japan",
-          "home_win_prob": 0.123309,
-          "draw_prob": 0.234899,
-          "away_win_prob": 0.641792,
-          "home_xg": 0.690000,
-          "away_xg": 1.920000,
-          "is_played": 0,
+          "home_win_prob": 0.000000,
+          "draw_prob": 0.000000,
+          "away_win_prob": 1.000000,
+          "home_xg": 0.000000,
+          "away_xg": 4.000000,
+          "is_played": 1,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.141186 },
-            { "score": "0-2", "prob": 0.135539 },
-            { "score": "1-1", "prob": 0.097419 }
+            { "score": "0-4", "prob": 1.000000 }
           ]
         },
         {
           "home": "Japan",
           "away": "Sweden",
-          "home_win_prob": 0.275708,
-          "draw_prob": 0.292244,
-          "away_win_prob": 0.432048,
-          "home_xg": 1.100000,
-          "away_xg": 1.450000,
+          "home_win_prob": 0.307343,
+          "draw_prob": 0.311248,
+          "away_win_prob": 0.381409,
+          "home_xg": 1.090000,
+          "away_xg": 1.250000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.124540 },
-            { "score": "0-1", "prob": 0.113218 },
-            { "score": "1-2", "prob": 0.090292 }
+            { "score": "1-1", "prob": 0.131246 },
+            { "score": "0-1", "prob": 0.120410 },
+            { "score": "1-0", "prob": 0.104997 }
           ]
         },
         {
           "home": "Tunisia",
           "away": "Netherlands",
-          "home_win_prob": 0.095132,
-          "draw_prob": 0.180146,
-          "away_win_prob": 0.724722,
-          "home_xg": 0.760000,
-          "away_xg": 2.440000,
+          "home_win_prob": 0.084907,
+          "draw_prob": 0.205288,
+          "away_win_prob": 0.709805,
+          "home_xg": 0.550000,
+          "away_xg": 2.080000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.121341 },
-            { "score": "0-1", "prob": 0.099460 },
-            { "score": "0-3", "prob": 0.098691 }
+            { "score": "0-2", "prob": 0.155920 },
+            { "score": "0-1", "prob": 0.149923 },
+            { "score": "0-3", "prob": 0.108105 }
           ]
         }
       ],
       "table_probabilities": [
         {
-          "team": "Sweden",
-          "expected_points": 5.41,
-          "probabilities": {
-            "1st": 0.38,
-            "2nd": 0.32,
-            "3rd": 0.29,
-            "4th": 0.01
-          }
-        },
-        {
           "team": "Netherlands",
-          "expected_points": 5.28,
+          "expected_points": 6.33,
           "probabilities": {
-            "1st": 0.44,
-            "2nd": 0.34,
-            "3rd": 0.18,
-            "4th": 0.04
+            "1st": 0.70,
+            "2nd": 0.29,
+            "3rd": 0.01,
+            "4th": 0.00
           }
         },
         {
           "team": "Japan",
-          "expected_points": 4.28,
+          "expected_points": 5.23,
           "probabilities": {
-            "1st": 0.17,
-            "2nd": 0.32,
-            "3rd": 0.41,
-            "4th": 0.10
+            "1st": 0.19,
+            "2nd": 0.42,
+            "3rd": 0.39,
+            "4th": 0.00
+          }
+        },
+        {
+          "team": "Sweden",
+          "expected_points": 4.46,
+          "probabilities": {
+            "1st": 0.11,
+            "2nd": 0.29,
+            "3rd": 0.60,
+            "4th": 0.00
           }
         },
         {
           "team": "Tunisia",
-          "expected_points": 1.07,
+          "expected_points": 0.46,
           "probabilities": {
-            "1st": 0.01,
-            "2nd": 0.02,
-            "3rd": 0.12,
-            "4th": 0.85
+            "1st": 0.00,
+            "2nd": 0.00,
+            "3rd": 0.00,
+            "4th": 1.00
           }
         }
       ]
@@ -816,103 +800,103 @@
         {
           "home": "Belgium",
           "away": "Iran",
-          "home_win_prob": 0.503006,
-          "draw_prob": 0.284669,
-          "away_win_prob": 0.212325,
-          "home_xg": 1.560000,
-          "away_xg": 0.910000,
+          "home_win_prob": 0.504038,
+          "draw_prob": 0.277499,
+          "away_win_prob": 0.218463,
+          "home_xg": 1.620000,
+          "away_xg": 0.970000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.131952 },
-            { "score": "1-1", "prob": 0.120077 },
-            { "score": "2-0", "prob": 0.102923 }
+            { "score": "1-0", "prob": 0.121532 },
+            { "score": "1-1", "prob": 0.117886 },
+            { "score": "2-0", "prob": 0.098441 }
           ]
         },
         {
           "home": "New Zealand",
           "away": "Egypt",
-          "home_win_prob": 0.087403,
-          "draw_prob": 0.181800,
-          "away_win_prob": 0.730797,
-          "home_xg": 0.680000,
-          "away_xg": 2.370000,
+          "home_win_prob": 0.077734,
+          "draw_prob": 0.196161,
+          "away_win_prob": 0.726105,
+          "home_xg": 0.530000,
+          "away_xg": 2.140000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.133005 },
-            { "score": "0-1", "prob": 0.112241 },
-            { "score": "0-3", "prob": 0.105074 }
+            { "score": "0-2", "prob": 0.158574 },
+            { "score": "0-1", "prob": 0.148200 },
+            { "score": "0-3", "prob": 0.113116 }
           ]
         },
         {
           "home": "Egypt",
           "away": "Iran",
-          "home_win_prob": 0.304846,
-          "draw_prob": 0.350258,
-          "away_win_prob": 0.344897,
-          "home_xg": 0.910000,
-          "away_xg": 0.990000,
+          "home_win_prob": 0.310190,
+          "draw_prob": 0.327037,
+          "away_win_prob": 0.362773,
+          "home_xg": 1.020000,
+          "away_xg": 1.130000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-0", "prob": 0.149569 },
-            { "score": "0-1", "prob": 0.148073 },
-            { "score": "1-0", "prob": 0.136107 }
+            { "score": "1-1", "prob": 0.134260 },
+            { "score": "0-1", "prob": 0.131627 },
+            { "score": "1-0", "prob": 0.118814 }
           ]
         },
         {
           "home": "New Zealand",
           "away": "Belgium",
-          "home_win_prob": 0.056432,
-          "draw_prob": 0.135614,
-          "away_win_prob": 0.807954,
-          "home_xg": 0.620000,
-          "away_xg": 2.800000,
+          "home_win_prob": 0.037834,
+          "draw_prob": 0.111985,
+          "away_win_prob": 0.850181,
+          "home_xg": 0.500000,
+          "away_xg": 2.960000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.128233 },
-            { "score": "0-3", "prob": 0.119684 },
-            { "score": "0-1", "prob": 0.091595 }
+            { "score": "0-2", "prob": 0.137688 },
+            { "score": "0-3", "prob": 0.135852 },
+            { "score": "0-4", "prob": 0.100530 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Belgium",
-          "expected_points": 5.35,
+          "expected_points": 5.45,
           "probabilities": {
-            "1st": 0.55,
-            "2nd": 0.29,
-            "3rd": 0.12,
-            "4th": 0.04
+            "1st": 0.58,
+            "2nd": 0.28,
+            "3rd": 0.11,
+            "4th": 0.03
           }
         },
         {
           "team": "Egypt",
-          "expected_points": 4.64,
+          "expected_points": 4.63,
           "probabilities": {
-            "1st": 0.27,
-            "2nd": 0.44,
-            "3rd": 0.21,
-            "4th": 0.08
+            "1st": 0.25,
+            "2nd": 0.45,
+            "3rd": 0.23,
+            "4th": 0.07
           }
         },
         {
           "team": "Iran",
-          "expected_points": 3.31,
+          "expected_points": 3.35,
           "probabilities": {
-            "1st": 0.15,
-            "2nd": 0.21,
-            "3rd": 0.50,
-            "4th": 0.14
+            "1st": 0.16,
+            "2nd": 0.22,
+            "3rd": 0.49,
+            "4th": 0.12
           }
         },
         {
           "team": "New Zealand",
-          "expected_points": 1.75,
+          "expected_points": 1.65,
           "probabilities": {
-            "1st": 0.02,
-            "2nd": 0.06,
-            "3rd": 0.17,
-            "4th": 0.75
+            "1st": 0.01,
+            "2nd": 0.05,
+            "3rd": 0.16,
+            "4th": 0.78
           }
         }
       ]
@@ -948,103 +932,103 @@
         {
           "home": "Spain",
           "away": "Saudi Arabia",
-          "home_win_prob": 0.821475,
-          "draw_prob": 0.130394,
-          "away_win_prob": 0.048131,
-          "home_xg": 2.780000,
-          "away_xg": 0.540000,
+          "home_win_prob": 0.744581,
+          "draw_prob": 0.171901,
+          "away_win_prob": 0.083518,
+          "home_xg": 2.480000,
+          "away_xg": 0.700000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "2-0", "prob": 0.139702 },
-            { "score": "3-0", "prob": 0.129457 },
-            { "score": "1-0", "prob": 0.100505 }
+            { "score": "2-0", "prob": 0.127884 },
+            { "score": "3-0", "prob": 0.105718 },
+            { "score": "1-0", "prob": 0.103132 }
           ]
         },
         {
           "home": "Uruguay",
           "away": "Cape Verde",
-          "home_win_prob": 0.691860,
-          "draw_prob": 0.213405,
-          "away_win_prob": 0.094735,
-          "home_xg": 2.040000,
-          "away_xg": 0.590000,
+          "home_win_prob": 0.549617,
+          "draw_prob": 0.280191,
+          "away_win_prob": 0.170192,
+          "home_xg": 1.590000,
+          "away_xg": 0.750000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "2-0", "prob": 0.149981 },
-            { "score": "1-0", "prob": 0.147040 },
-            { "score": "3-0", "prob": 0.101987 }
+            { "score": "1-0", "prob": 0.153161 },
+            { "score": "2-0", "prob": 0.121763 },
+            { "score": "1-1", "prob": 0.114871 }
           ]
         },
         {
           "home": "Cape Verde",
           "away": "Saudi Arabia",
-          "home_win_prob": 0.370401,
-          "draw_prob": 0.331635,
-          "away_win_prob": 0.297964,
-          "home_xg": 1.120000,
-          "away_xg": 0.970000,
+          "home_win_prob": 0.353639,
+          "draw_prob": 0.292722,
+          "away_win_prob": 0.353639,
+          "home_xg": 1.310000,
+          "away_xg": 1.310000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.138530 },
-            { "score": "1-1", "prob": 0.134374 },
-            { "score": "0-0", "prob": 0.123687 }
+            { "score": "1-1", "prob": 0.124937 },
+            { "score": "0-1", "prob": 0.095372 },
+            { "score": "1-0", "prob": 0.095372 }
           ]
         },
         {
           "home": "Uruguay",
           "away": "Spain",
-          "home_win_prob": 0.229238,
-          "draw_prob": 0.262252,
-          "away_win_prob": 0.508510,
-          "home_xg": 1.100000,
-          "away_xg": 1.760000,
+          "home_win_prob": 0.239469,
+          "draw_prob": 0.285661,
+          "away_win_prob": 0.474871,
+          "home_xg": 1.010000,
+          "away_xg": 1.540000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.110872 },
-            { "score": "0-1", "prob": 0.100793 },
-            { "score": "1-2", "prob": 0.097568 }
+            { "score": "1-1", "prob": 0.121448 },
+            { "score": "0-1", "prob": 0.120246 },
+            { "score": "1-2", "prob": 0.093515 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Spain",
-          "expected_points": 5.38,
+          "expected_points": 5.12,
           "probabilities": {
-            "1st": 0.61,
-            "2nd": 0.26,
-            "3rd": 0.10,
-            "4th": 0.03
+            "1st": 0.55,
+            "2nd": 0.25,
+            "3rd": 0.14,
+            "4th": 0.05
           }
         },
         {
           "team": "Uruguay",
-          "expected_points": 4.24,
+          "expected_points": 3.93,
           "probabilities": {
-            "1st": 0.29,
-            "2nd": 0.39,
-            "3rd": 0.23,
-            "4th": 0.09
+            "1st": 0.26,
+            "2nd": 0.31,
+            "3rd": 0.28,
+            "4th": 0.15
           }
         },
         {
           "team": "Cape Verde",
-          "expected_points": 2.94,
+          "expected_points": 3.14,
           "probabilities": {
-            "1st": 0.05,
-            "2nd": 0.22,
-            "3rd": 0.35,
-            "4th": 0.38
+            "1st": 0.10,
+            "2nd": 0.25,
+            "3rd": 0.29,
+            "4th": 0.36
           }
         },
         {
           "team": "Saudi Arabia",
-          "expected_points": 2.50,
+          "expected_points": 2.78,
           "probabilities": {
-            "1st": 0.04,
-            "2nd": 0.14,
-            "3rd": 0.32,
-            "4th": 0.50
+            "1st": 0.08,
+            "2nd": 0.19,
+            "3rd": 0.29,
+            "4th": 0.44
           }
         }
       ]
@@ -1080,103 +1064,103 @@
         {
           "home": "France",
           "away": "Iraq",
-          "home_win_prob": 0.796587,
-          "draw_prob": 0.156544,
-          "away_win_prob": 0.046870,
-          "home_xg": 2.370000,
-          "away_xg": 0.400000,
+          "home_win_prob": 0.752891,
+          "draw_prob": 0.175221,
+          "away_win_prob": 0.071887,
+          "home_xg": 2.350000,
+          "away_xg": 0.570000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "2-0", "prob": 0.175983 },
-            { "score": "1-0", "prob": 0.148509 },
-            { "score": "3-0", "prob": 0.139027 }
+            { "score": "2-0", "prob": 0.148924 },
+            { "score": "1-0", "prob": 0.126744 },
+            { "score": "3-0", "prob": 0.116657 }
           ]
         },
         {
           "home": "Norway",
           "away": "Senegal",
-          "home_win_prob": 0.235338,
-          "draw_prob": 0.312882,
-          "away_win_prob": 0.451781,
-          "home_xg": 0.870000,
-          "away_xg": 1.330000,
+          "home_win_prob": 0.313039,
+          "draw_prob": 0.368737,
+          "away_win_prob": 0.318224,
+          "home_xg": 0.860000,
+          "away_xg": 0.870000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.147368 },
-            { "score": "1-1", "prob": 0.128210 },
-            { "score": "0-0", "prob": 0.110803 }
+            { "score": "0-0", "prob": 0.177284 },
+            { "score": "0-1", "prob": 0.154237 },
+            { "score": "1-0", "prob": 0.152465 }
           ]
         },
         {
           "home": "Norway",
           "away": "France",
-          "home_win_prob": 0.168125,
-          "draw_prob": 0.231330,
-          "away_win_prob": 0.600545,
-          "home_xg": 0.980000,
-          "away_xg": 2.050000,
+          "home_win_prob": 0.133791,
+          "draw_prob": 0.244796,
+          "away_win_prob": 0.621413,
+          "home_xg": 0.710000,
+          "away_xg": 1.850000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.101523 },
-            { "score": "1-2", "prob": 0.099493 },
-            { "score": "0-1", "prob": 0.099047 }
+            { "score": "0-1", "prob": 0.143014 },
+            { "score": "0-2", "prob": 0.132288 },
+            { "score": "1-1", "prob": 0.101540 }
           ]
         },
         {
           "home": "Senegal",
           "away": "Iraq",
-          "home_win_prob": 0.661262,
-          "draw_prob": 0.237960,
-          "away_win_prob": 0.100778,
-          "home_xg": 1.830000,
-          "away_xg": 0.540000,
+          "home_win_prob": 0.709175,
+          "draw_prob": 0.204835,
+          "away_win_prob": 0.085990,
+          "home_xg": 2.090000,
+          "away_xg": 0.560000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.171070 },
-            { "score": "2-0", "prob": 0.156529 },
-            { "score": "3-0", "prob": 0.095483 }
+            { "score": "2-0", "prob": 0.154306 },
+            { "score": "1-0", "prob": 0.147661 },
+            { "score": "3-0", "prob": 0.107500 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "France",
-          "expected_points": 7.58,
+          "expected_points": 7.54,
           "probabilities": {
             "1st": 0.80,
-            "2nd": 0.17,
-            "3rd": 0.03,
+            "2nd": 0.18,
+            "3rd": 0.02,
             "4th": 0.00
           }
         },
         {
           "team": "Norway",
-          "expected_points": 4.75,
+          "expected_points": 4.95,
           "probabilities": {
-            "1st": 0.17,
-            "2nd": 0.45,
-            "3rd": 0.38,
-            "4th": 0.01
+            "1st": 0.18,
+            "2nd": 0.52,
+            "3rd": 0.30,
+            "4th": 0.00
           }
         },
         {
           "team": "Senegal",
-          "expected_points": 3.89,
+          "expected_points": 3.66,
           "probabilities": {
             "1st": 0.02,
-            "2nd": 0.38,
-            "3rd": 0.52,
-            "4th": 0.08
+            "2nd": 0.30,
+            "3rd": 0.59,
+            "4th": 0.09
           }
         },
         {
           "team": "Iraq",
-          "expected_points": 0.84,
+          "expected_points": 0.85,
           "probabilities": {
             "1st": 0.00,
             "2nd": 0.01,
-            "3rd": 0.08,
-            "4th": 0.91
+            "3rd": 0.09,
+            "4th": 0.90
           }
         }
       ]
@@ -1212,103 +1196,103 @@
         {
           "home": "Argentina",
           "away": "Austria",
-          "home_win_prob": 0.580544,
-          "draw_prob": 0.235038,
-          "away_win_prob": 0.184418,
-          "home_xg": 2.030000,
-          "away_xg": 1.050000,
+          "home_win_prob": 0.461167,
+          "draw_prob": 0.268882,
+          "away_win_prob": 0.269951,
+          "home_xg": 1.670000,
+          "away_xg": 1.220000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "2-1", "prob": 0.099432 },
-            { "score": "1-1", "prob": 0.097962 },
-            { "score": "2-0", "prob": 0.094697 }
+            { "score": "1-1", "prob": 0.113231 },
+            { "score": "2-1", "prob": 0.094548 },
+            { "score": "1-0", "prob": 0.092812 }
           ]
         },
         {
           "home": "Jordan",
           "away": "Algeria",
-          "home_win_prob": 0.161039,
-          "draw_prob": 0.249548,
-          "away_win_prob": 0.589413,
-          "home_xg": 0.840000,
-          "away_xg": 1.850000,
+          "home_win_prob": 0.062165,
+          "draw_prob": 0.174907,
+          "away_win_prob": 0.762928,
+          "home_xg": 0.480000,
+          "away_xg": 2.280000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.125580 },
-            { "score": "0-2", "prob": 0.116161 },
-            { "score": "1-1", "prob": 0.105487 }
+            { "score": "0-2", "prob": 0.164508 },
+            { "score": "0-1", "prob": 0.144305 },
+            { "score": "0-3", "prob": 0.125026 }
           ]
         },
         {
           "home": "Algeria",
           "away": "Austria",
-          "home_win_prob": 0.249192,
-          "draw_prob": 0.267497,
-          "away_win_prob": 0.483311,
-          "home_xg": 1.150000,
-          "away_xg": 1.700000,
+          "home_win_prob": 0.216243,
+          "draw_prob": 0.249626,
+          "away_win_prob": 0.534131,
+          "home_xg": 1.120000,
+          "away_xg": 1.890000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.113086 },
-            { "score": "0-1", "prob": 0.098335 },
-            { "score": "1-2", "prob": 0.096123 }
+            { "score": "1-1", "prob": 0.104341 },
+            { "score": "1-2", "prob": 0.098602 },
+            { "score": "0-1", "prob": 0.093161 }
           ]
         },
         {
           "home": "Jordan",
           "away": "Argentina",
-          "home_win_prob": 0.026378,
-          "draw_prob": 0.092265,
-          "away_win_prob": 0.881358,
-          "home_xg": 0.420000,
-          "away_xg": 3.130000,
+          "home_win_prob": 0.052197,
+          "draw_prob": 0.171448,
+          "away_win_prob": 0.776354,
+          "home_xg": 0.400000,
+          "away_xg": 2.240000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-3", "prob": 0.146803 },
-            { "score": "0-2", "prob": 0.140706 },
-            { "score": "0-4", "prob": 0.114874 }
+            { "score": "0-2", "prob": 0.179031 },
+            { "score": "0-1", "prob": 0.159849 },
+            { "score": "0-3", "prob": 0.133677 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Argentina",
-          "expected_points": 7.71,
+          "expected_points": 7.15,
           "probabilities": {
-            "1st": 0.82,
-            "2nd": 0.18,
-            "3rd": 0.01,
+            "1st": 0.69,
+            "2nd": 0.29,
+            "3rd": 0.02,
             "4th": 0.00
           }
         },
         {
           "team": "Austria",
-          "expected_points": 5.51,
+          "expected_points": 5.93,
           "probabilities": {
-            "1st": 0.18,
-            "2nd": 0.62,
-            "3rd": 0.20,
+            "1st": 0.30,
+            "2nd": 0.52,
+            "3rd": 0.18,
             "4th": 0.00
           }
         },
         {
           "team": "Algeria",
-          "expected_points": 3.03,
+          "expected_points": 3.36,
           "probabilities": {
-            "1st": 0.01,
-            "2nd": 0.20,
-            "3rd": 0.58,
-            "4th": 0.21
+            "1st": 0.02,
+            "2nd": 0.18,
+            "3rd": 0.67,
+            "4th": 0.14
           }
         },
         {
           "team": "Jordan",
-          "expected_points": 0.90,
+          "expected_points": 0.69,
           "probabilities": {
             "1st": 0.00,
             "2nd": 0.01,
-            "3rd": 0.21,
-            "4th": 0.78
+            "3rd": 0.13,
+            "4th": 0.86
           }
         }
       ]
@@ -1344,103 +1328,103 @@
         {
           "home": "Portugal",
           "away": "Uzbekistan",
-          "home_win_prob": 0.803650,
-          "draw_prob": 0.141096,
-          "away_win_prob": 0.055254,
-          "home_xg": 2.690000,
-          "away_xg": 0.570000,
+          "home_win_prob": 0.599670,
+          "draw_prob": 0.250976,
+          "away_win_prob": 0.149353,
+          "home_xg": 1.820000,
+          "away_xg": 0.770000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "2-0", "prob": 0.138891 },
-            { "score": "3-0", "prob": 0.124539 },
-            { "score": "1-0", "prob": 0.103265 }
+            { "score": "1-0", "prob": 0.136536 },
+            { "score": "2-0", "prob": 0.124248 },
+            { "score": "1-1", "prob": 0.105133 }
           ]
         },
         {
           "home": "Colombia",
           "away": "DR Congo",
-          "home_win_prob": 0.694615,
-          "draw_prob": 0.219058,
-          "away_win_prob": 0.086326,
-          "home_xg": 1.950000,
-          "away_xg": 0.510000,
+          "home_win_prob": 0.572328,
+          "draw_prob": 0.273699,
+          "away_win_prob": 0.153973,
+          "home_xg": 1.630000,
+          "away_xg": 0.700000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.166598 },
-            { "score": "2-0", "prob": 0.162433 },
-            { "score": "3-0", "prob": 0.105582 }
+            { "score": "1-0", "prob": 0.158592 },
+            { "score": "2-0", "prob": 0.129253 },
+            { "score": "1-1", "prob": 0.111014 }
           ]
         },
         {
           "home": "Colombia",
           "away": "Portugal",
-          "home_win_prob": 0.219142,
-          "draw_prob": 0.299436,
-          "away_win_prob": 0.481423,
-          "home_xg": 0.870000,
-          "away_xg": 1.440000,
+          "home_win_prob": 0.290147,
+          "draw_prob": 0.320462,
+          "away_win_prob": 0.389391,
+          "home_xg": 1.000000,
+          "away_xg": 1.210000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-1", "prob": 0.142936 },
-            { "score": "1-1", "prob": 0.124354 },
-            { "score": "0-2", "prob": 0.102914 }
+            { "score": "0-1", "prob": 0.132738 },
+            { "score": "1-1", "prob": 0.132738 },
+            { "score": "0-0", "prob": 0.109701 }
           ]
         },
         {
           "home": "DR Congo",
           "away": "Uzbekistan",
-          "home_win_prob": 0.301985,
-          "draw_prob": 0.308527,
-          "away_win_prob": 0.389488,
-          "home_xg": 1.090000,
-          "away_xg": 1.280000,
+          "home_win_prob": 0.248092,
+          "draw_prob": 0.302010,
+          "away_win_prob": 0.449897,
+          "home_xg": 0.960000,
+          "away_xg": 1.400000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-1", "prob": 0.130424 },
-            { "score": "0-1", "prob": 0.119655 },
-            { "score": "1-0", "prob": 0.101894 }
+            { "score": "0-1", "prob": 0.132188 },
+            { "score": "1-1", "prob": 0.126901 },
+            { "score": "0-0", "prob": 0.094420 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "Colombia",
-          "expected_points": 6.26,
+          "expected_points": 6.18,
           "probabilities": {
-            "1st": 0.51,
-            "2nd": 0.40,
-            "3rd": 0.08,
-            "4th": 0.01
-          }
-        },
-        {
-          "team": "Portugal",
-          "expected_points": 5.30,
-          "probabilities": {
-            "1st": 0.46,
-            "2nd": 0.41,
-            "3rd": 0.10,
+            "1st": 0.60,
+            "2nd": 0.28,
+            "3rd": 0.09,
             "4th": 0.02
           }
         },
         {
-          "team": "DR Congo",
-          "expected_points": 2.69,
+          "team": "Portugal",
+          "expected_points": 4.54,
           "probabilities": {
-            "1st": 0.03,
-            "2nd": 0.13,
-            "3rd": 0.45,
-            "4th": 0.39
+            "1st": 0.31,
+            "2nd": 0.40,
+            "3rd": 0.21,
+            "4th": 0.08
+          }
+        },
+        {
+          "team": "DR Congo",
+          "expected_points": 2.78,
+          "probabilities": {
+            "1st": 0.06,
+            "2nd": 0.18,
+            "3rd": 0.35,
+            "4th": 0.41
           }
         },
         {
           "team": "Uzbekistan",
-          "expected_points": 1.78,
+          "expected_points": 2.35,
           "probabilities": {
-            "1st": 0.01,
-            "2nd": 0.05,
-            "3rd": 0.36,
-            "4th": 0.58
+            "1st": 0.03,
+            "2nd": 0.13,
+            "3rd": 0.35,
+            "4th": 0.49
           }
         }
       ]
@@ -1476,103 +1460,103 @@
         {
           "home": "England",
           "away": "Ghana",
-          "home_win_prob": 0.585010,
-          "draw_prob": 0.270028,
-          "away_win_prob": 0.144962,
-          "home_xg": 1.650000,
-          "away_xg": 0.670000,
+          "home_win_prob": 0.603800,
+          "draw_prob": 0.246746,
+          "away_win_prob": 0.149453,
+          "home_xg": 1.860000,
+          "away_xg": 0.790000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.162151 },
-            { "score": "2-0", "prob": 0.133775 },
-            { "score": "1-1", "prob": 0.108641 }
+            { "score": "1-0", "prob": 0.131411 },
+            { "score": "2-0", "prob": 0.122212 },
+            { "score": "1-1", "prob": 0.103815 }
           ]
         },
         {
           "home": "Panama",
           "away": "Croatia",
-          "home_win_prob": 0.073613,
-          "draw_prob": 0.187708,
-          "away_win_prob": 0.738678,
-          "home_xg": 0.530000,
-          "away_xg": 2.210000,
+          "home_win_prob": 0.072772,
+          "draw_prob": 0.193524,
+          "away_win_prob": 0.733704,
+          "home_xg": 0.500000,
+          "away_xg": 2.140000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.157684 },
-            { "score": "0-1", "prob": 0.142700 },
-            { "score": "0-3", "prob": 0.116161 }
+            { "score": "0-2", "prob": 0.163403 },
+            { "score": "0-1", "prob": 0.152713 },
+            { "score": "0-3", "prob": 0.116561 }
           ]
         },
         {
           "home": "Panama",
           "away": "England",
-          "home_win_prob": 0.037474,
-          "draw_prob": 0.136481,
-          "away_win_prob": 0.826046,
-          "home_xg": 0.370000,
-          "away_xg": 2.530000,
+          "home_win_prob": 0.064694,
+          "draw_prob": 0.180754,
+          "away_win_prob": 0.754551,
+          "home_xg": 0.480000,
+          "away_xg": 2.230000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "0-2", "prob": 0.176099 },
-            { "score": "0-3", "prob": 0.148510 },
-            { "score": "0-1", "prob": 0.139209 }
+            { "score": "0-2", "prob": 0.165440 },
+            { "score": "0-1", "prob": 0.148377 },
+            { "score": "0-3", "prob": 0.122977 }
           ]
         },
         {
           "home": "Croatia",
           "away": "Ghana",
-          "home_win_prob": 0.570299,
-          "draw_prob": 0.279664,
-          "away_win_prob": 0.150037,
-          "home_xg": 1.580000,
-          "away_xg": 0.660000,
+          "home_win_prob": 0.564723,
+          "draw_prob": 0.275564,
+          "away_win_prob": 0.159714,
+          "home_xg": 1.620000,
+          "away_xg": 0.720000,
           "is_played": 0,
           "likely_scores": [
-            { "score": "1-0", "prob": 0.168204 },
-            { "score": "2-0", "prob": 0.132882 },
-            { "score": "1-1", "prob": 0.111015 }
+            { "score": "1-0", "prob": 0.156051 },
+            { "score": "2-0", "prob": 0.126401 },
+            { "score": "1-1", "prob": 0.112357 }
           ]
         }
       ],
       "table_probabilities": [
         {
           "team": "England",
-          "expected_points": 7.64,
+          "expected_points": 7.50,
           "probabilities": {
-            "1st": 0.87,
-            "2nd": 0.11,
-            "3rd": 0.02,
+            "1st": 0.85,
+            "2nd": 0.12,
+            "3rd": 0.03,
             "4th": 0.00
           }
         },
         {
           "team": "Ghana",
-          "expected_points": 4.43,
+          "expected_points": 4.45,
           "probabilities": {
-            "1st": 0.08,
+            "1st": 0.09,
             "2nd": 0.29,
-            "3rd": 0.61,
-            "4th": 0.02
+            "3rd": 0.59,
+            "4th": 0.03
           }
         },
         {
           "team": "Croatia",
-          "expected_points": 4.39,
+          "expected_points": 4.36,
           "probabilities": {
-            "1st": 0.05,
-            "2nd": 0.58,
-            "3rd": 0.31,
-            "4th": 0.06
+            "1st": 0.06,
+            "2nd": 0.57,
+            "3rd": 0.30,
+            "4th": 0.07
           }
         },
         {
           "team": "Panama",
-          "expected_points": 0.66,
+          "expected_points": 0.79,
           "probabilities": {
             "1st": 0.00,
-            "2nd": 0.01,
-            "3rd": 0.07,
-            "4th": 0.92
+            "2nd": 0.02,
+            "3rd": 0.08,
+            "4th": 0.90
           }
         }
       ]
