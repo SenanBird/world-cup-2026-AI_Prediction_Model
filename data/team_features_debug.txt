@@ -6,103 +6,103 @@ ELO & SQUAD FACTS FOR ALL WORLD CUP 2026 PARTICIPANTS
 ================================================================================
 ELO RATINGS (as of 2026-06-01)
 ================================================================================
-Algeria: 1854.32
-Argentina: 2080.67
+Algeria: 1864.13
+Argentina: 2088.99
 Australia: 1825.74
-Austria: 1857.51
-Belgium: 1885.15
+Austria: 1849.19
+Belgium: 1883.21
 Bosnia and Herzegovina: 1603.29
 Brazil: 1974.10
 Canada: 1840.32
-Cape Verde: 1637.57
-Colombia: 1963.74
-Croatia: 1871.78
+Cape Verde: 1646.47
+Colombia: 1970.30
+Croatia: 1881.97
 Curaçao: 1547.75
 Czech Republic: 1743.45
-DR Congo: 1707.62
+DR Congo: 1701.06
 Ecuador: 1879.54
-Egypt: 1782.37
-England: 1971.89
-France: 2013.06
+Egypt: 1794.23
+England: 1959.31
+France: 2019.00
 Germany: 1968.86
-Ghana: 1603.09
+Ghana: 1615.67
 Haiti: 1605.61
-Iran: 1842.73
-Iraq: 1701.57
+Iran: 1844.68
+Iraq: 1695.63
 Ivory Coast: 1811.39
 Japan: 1952.34
-Jordan: 1689.05
+Jordan: 1679.24
 Mexico: 1923.03
 Morocco: 1957.99
 Netherlands: 1939.11
-New Zealand: 1642.56
-Norway: 1871.32
-Panama: 1715.97
+New Zealand: 1630.70
+Norway: 1886.92
+Panama: 1705.77
 Paraguay: 1808.02
-Portugal: 1954.95
+Portugal: 1966.09
 Qatar: 1576.28
-Saudi Arabia: 1681.37
+Saudi Arabia: 1676.73
 Scotland: 1752.59
-Senegal: 1831.52
+Senegal: 1815.93
 South Africa: 1653.14
 South Korea: 1839.02
-Spain: 2056.33
+Spain: 2060.97
 Sweden: 1739.42
 Switzerland: 1860.94
 Tunisia: 1667.67
 Turkey: 1830.86
 United States: 1868.87
-Uruguay: 1855.58
-Uzbekistan: 1762.87
+Uruguay: 1846.68
+Uzbekistan: 1751.73
 
 ================================================================================
 CURRENT SQUAD SUMS & MEDIANS (M€)
 ================================================================================
-Algeria: Sum = 253.87 | Median = 9.00
-Argentina: Sum = 959.00 | Median = 35.00
-Australia: Sum = 84.81 | Median = 2.13
-Austria: Sum = 320.50 | Median = 14.00
-Belgium: Sum = 633.00 | Median = 25.00
-Bosnia and Herzegovina: Sum = 117.54 | Median = 3.00
-Brazil: Sum = 1243.00 | Median = 45.00
-Canada: Sum = 220.46 | Median = 6.37
-Cape Verde: Sum = 73.48 | Median = 2.00
-Colombia: Sum = 319.57 | Median = 9.00
-Croatia: Sum = 365.83 | Median = 10.00
-Curaçao: Sum = 32.04 | Median = 0.90
-Czech Republic: Sum = 175.48 | Median = 5.00
-DR Congo: Sum = 152.97 | Median = 4.50
-Ecuador: Sum = 339.61 | Median = 5.00
-Egypt: Sum = 143.00 | Median = 2.39
-England: Sum = 1665.00 | Median = 60.00
-France: Sum = 1630.00 | Median = 60.00
-Germany: Sum = 1096.00 | Median = 40.00
-Ghana: Sum = 306.70 | Median = 8.00
-Haiti: Sum = 68.36 | Median = 1.45
-Iran: Sum = 44.91 | Median = 1.50
-Iraq: Sum = 42.70 | Median = 1.01
-Ivory Coast: Sum = 467.50 | Median = 18.00
-Japan: Sum = 314.86 | Median = 12.00
-Jordan: Sum = 34.39 | Median = 0.98
-Mexico: Sum = 203.68 | Median = 6.44
-Morocco: Sum = 518.00 | Median = 20.00
-Netherlands: Sum = 1024.00 | Median = 35.00
-New Zealand: Sum = 54.91 | Median = 1.50
-Norway: Sum = 557.89 | Median = 12.03
-Panama: Sum = 77.04 | Median = 2.00
-Paraguay: Sum = 165.77 | Median = 5.00
-Portugal: Sum = 1109.00 | Median = 40.00
-Qatar: Sum = 34.66 | Median = 0.94
-Saudi Arabia: Sum = 152.65 | Median = 5.78
-Scotland: Sum = 298.50 | Median = 9.00
-Senegal: Sum = 435.50 | Median = 12.00
-South Africa: Sum = 44.89 | Median = 1.40
-South Korea: Sum = 150.42 | Median = 3.07
-Spain: Sum = 1165.00 | Median = 40.00
-Sweden: Sum = 585.08 | Median = 15.00
-Switzerland: Sum = 322.66 | Median = 9.00
-Tunisia: Sum = 77.32 | Median = 2.44
-Turkey: Sum = 447.50 | Median = 14.00
-United States: Sum = 431.64 | Median = 15.00
-Uruguay: Sum = 524.39 | Median = 10.00
-Uzbekistan: Sum = 65.53 | Median = 0.90
+Algeria: Sum = 306.00 | Median = 9.00
+Argentina: Sum = 1013.00 | Median = 35.00
+Australia: Sum = 89.90 | Median = 2.00
+Austria: Sum = 341.00 | Median = 10.00
+Belgium: Sum = 648.00 | Median = 25.00
+Bosnia and Herzegovina: Sum = 164.30 | Median = 4.00
+Brazil: Sum = 1268.00 | Median = 45.00
+Canada: Sum = 224.67 | Median = 6.00
+Cape Verde: Sum = 76.30 | Median = 2.00
+Colombia: Sum = 371.00 | Median = 12.00
+Croatia: Sum = 413.00 | Median = 10.00
+Curaçao: Sum = 26.90 | Median = 0.90
+Czech Republic: Sum = 227.00 | Median = 8.00
+DR Congo: Sum = 179.13 | Median = 4.00
+Ecuador: Sum = 397.00 | Median = 6.00
+Egypt: Sum = 135.35 | Median = 1.80
+England: Sum = 1585.00 | Median = 60.00
+France: Sum = 1700.00 | Median = 65.00
+Germany: Sum = 1156.00 | Median = 45.00
+Ghana: Sum = 310.50 | Median = 8.00
+Haiti: Sum = 56.32 | Median = 0.80
+Iran: Sum = 43.96 | Median = 1.60
+Iraq: Sum = 25.33 | Median = 0.80
+Ivory Coast: Sum = 600.00 | Median = 22.00
+Japan: Sum = 332.00 | Median = 10.00
+Jordan: Sum = 21.00 | Median = 0.45
+Mexico: Sum = 222.50 | Median = 8.00
+Morocco: Sum = 565.00 | Median = 20.00
+Netherlands: Sum = 957.00 | Median = 35.00
+New Zealand: Sum = 36.39 | Median = 0.84
+Norway: Sum = 632.00 | Median = 15.00
+Panama: Sum = 40.76 | Median = 1.00
+Paraguay: Sum = 175.82 | Median = 5.00
+Portugal: Sum = 1112.00 | Median = 40.00
+Qatar: Sum = 20.93 | Median = 0.40
+Saudi Arabia: Sum = 45.05 | Median = 1.40
+Scotland: Sum = 239.86 | Median = 9.00
+Senegal: Sum = 502.00 | Median = 15.00
+South Africa: Sum = 54.50 | Median = 2.00
+South Korea: Sum = 150.10 | Median = 3.00
+Spain: Sum = 1485.00 | Median = 50.00
+Sweden: Sum = 544.00 | Median = 15.00
+Switzerland: Sum = 374.50 | Median = 12.00
+Tunisia: Sum = 91.19 | Median = 3.00
+Turkey: Sum = 506.00 | Median = 15.00
+United States: Sum = 456.00 | Median = 18.00
+Uruguay: Sum = 445.50 | Median = 10.00
+Uzbekistan: Sum = 72.00 | Median = 1.20
