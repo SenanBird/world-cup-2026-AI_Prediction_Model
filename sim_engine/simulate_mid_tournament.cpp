@@ -6,12 +6,13 @@
 #include <sstream>
 #include <vector>
 #include <string>
-#include <cmath>      
-#include <map>        
-#include <algorithm>  
-#include <random>     
-#include <iomanip>    
-#include <cctype>     
+#include <cmath>
+#include <map>
+#include <algorithm>
+#include <random>
+#include <iomanip>
+#include <cctype>
+#include <tuple>
 
 using namespace std;
 
@@ -28,13 +29,14 @@ struct MatchPrediction {
     double homeXg;
     double awayXg;
     int isPlayed = 0; // 1 = Fixed real result, 0 = Simulate with Poisson
+    string likelyScore; // added for JSON compactness
 };
 
 struct TeamStats {
     string name;
     string group;
     double expectedPoints = 0.0;
-    int finishPositions[4] = {0, 0, 0, 0}; 
+    int finishPositions[4] = {0, 0, 0, 0};
 };
 
 struct ScoreProb {
@@ -42,13 +44,16 @@ struct ScoreProb {
     double prob;
 };
 
-// Internal struct used inside the Monte Carlo execution loop for accurate tracking
 struct SimTeam {
     string name;
     int points = 0;
     int goalDiff = 0;
     int goalsScored = 0;
 };
+
+// Global storage for JSON output
+vector<MatchPrediction> allMatches;                // all 72 matches
+map<string, vector<TeamStats>> allStandings;       // group -> standings
 
 // ---------------------------------------------------------
 // PARSING HELPERS
@@ -64,19 +69,11 @@ double safe_stod(const string& s) {
     for (char& c : trimmed) c = tolower(c);
     if (trimmed == "nan" || trimmed == "-nan" || trimmed == "inf" || trimmed == "-inf")
         return 0.0;
-    try {
-        return stod(trimmed);
-    } catch (...) {
-        return 0.0;
-    }
+    try { return stod(trimmed); } catch (...) { return 0.0; }
 }
 
 int safe_stoi(const string& s) {
-    try {
-        return stoi(s);
-    } catch (...) {
-        return 0;
-    }
+    try { return stoi(s); } catch (...) { return 0; }
 }
 
 // ---------------------------------------------------------
@@ -94,19 +91,16 @@ double poisson(int k, double lambda) {
     return (pow(lambda, k) * exp(-lambda)) / factorial(k);
 }
 
-
 void calculateMatchProbabilities(MatchPrediction& match) {
     if (match.isPlayed == 1) {
-        if (match.homeXg > match.awayXg) { match.homeWinProb = 1.0; match.drawProb = 0.0; match.awayWinProb = 0.0; }
+        if (match.homeXg > match.awayXg)      { match.homeWinProb = 1.0; match.drawProb = 0.0; match.awayWinProb = 0.0; }
         else if (match.homeXg < match.awayXg) { match.homeWinProb = 0.0; match.drawProb = 0.0; match.awayWinProb = 1.0; }
-        else { match.homeWinProb = 0.0; match.drawProb = 1.0; match.awayWinProb = 0.0; }
+        else                                  { match.homeWinProb = 0.0; match.drawProb = 1.0; match.awayWinProb = 0.0; }
         return;
     }
 
     match.homeWinProb = 0.0; match.drawProb = 0.0; match.awayWinProb = 0.0;
-    
-    // Dixon-Coles parameter capturing low score dependence optimization
-    const double rho = -0.12; 
+    const double rho = -0.12;
 
     for (int h = 0; h <= 15; ++h) {
         for (int a = 0; a <= 15; ++a) {
@@ -114,7 +108,7 @@ void calculateMatchProbabilities(MatchPrediction& match) {
             double p_away = poisson(a, match.awayXg);
             double prob = p_home * p_away;
 
-            // Apply Dixon-Coles correction matrix to low scores
+            // Dixon-Coles correction
             if (h == 0 && a == 0)      prob *= (1.0 - match.homeXg * match.awayXg * rho);
             else if (h == 1 && a == 0) prob *= (1.0 + match.homeXg * rho);
             else if (h == 0 && a == 1) prob *= (1.0 + match.awayXg * rho);
@@ -125,14 +119,12 @@ void calculateMatchProbabilities(MatchPrediction& match) {
             else             match.drawProb += prob;
         }
     }
-    
-    // Normalize probabilities to perfectly sum to 1.0 due to structural adjustment
+
     double totalProb = match.homeWinProb + match.drawProb + match.awayWinProb;
     match.homeWinProb /= totalProb;
-    match.drawProb /= totalProb;
+    match.drawProb   /= totalProb;
     match.awayWinProb /= totalProb;
 }
-
 
 vector<ScoreProb> getTopScorelines(const MatchPrediction& match, int topN = 3) {
     if (match.isPlayed == 1) {
@@ -146,7 +138,9 @@ vector<ScoreProb> getTopScorelines(const MatchPrediction& match, int topN = 3) {
             scoreProbs.emplace_back(prob, h, a);
         }
     }
-    sort(scoreProbs.begin(), scoreProbs.end(), [](const auto& a, const auto& b) { return get<0>(a) > get<0>(b); });
+    sort(scoreProbs.begin(), scoreProbs.end(), [](const auto& a, const auto& b) {
+        return get<0>(a) > get<0>(b);
+    });
     vector<ScoreProb> result;
     for (int i = 0; i < min(topN, (int)scoreProbs.size()); ++i) {
         string scoreStr = to_string(get<1>(scoreProbs[i])) + "-" + to_string(get<2>(scoreProbs[i]));
@@ -156,12 +150,16 @@ vector<ScoreProb> getTopScorelines(const MatchPrediction& match, int topN = 3) {
 }
 
 // ---------------------------------------------------------
-// MID-TOURNAMENT HYBRID SIMULATION ENGINE
+// MID-TOURNAMENT HYBRID SIMULATION ENGINE (unchanged logic)
 // ---------------------------------------------------------
-vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>& matches, stringstream& jsonBuffer) {
+vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>& matches) {
     map<string, TeamStats> groupTeams;
     for (auto& m : matches) {
         calculateMatchProbabilities(m);
+        // Store the most likely scoreline for JSON output
+        auto top = getTopScorelines(m, 1);
+        if (!top.empty()) m.likelyScore = top[0].score;
+
         groupTeams[m.homeTeam].name = m.homeTeam;
         groupTeams[m.homeTeam].group = groupName;
         groupTeams[m.homeTeam].expectedPoints += (3.0 * m.homeWinProb) + (1.0 * m.drawProb);
@@ -174,7 +172,6 @@ vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>
     random_device rd;
     mt19937 gen(rd());
 
-    // Pre-calculate distribution frameworks outside the main simulation loop for top performance optimization
     vector<poisson_distribution<int>> homeDists, awayDists;
     for (const auto& m : matches) {
         homeDists.push_back(poisson_distribution<int>(max(0.01, m.homeXg)));
@@ -186,26 +183,24 @@ vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>
         for (const auto& pair : groupTeams) {
             simTable[pair.first] = {pair.first, 0, 0, 0};
         }
-        
+
         for (size_t mIdx = 0; mIdx < matches.size(); ++mIdx) {
             const auto& m = matches[mIdx];
             int hGoals = 0, aGoals = 0;
-            
+
             if (m.isPlayed == 1) {
                 hGoals = (int)m.homeXg;
                 aGoals = (int)m.awayXg;
             } else {
-                // Generates dynamic goal metrics on every single execution step
                 hGoals = homeDists[mIdx](gen);
                 aGoals = awayDists[mIdx](gen);
             }
-            
-            // Log core tie-breaker data arrays
+
             simTable[m.homeTeam].goalsScored += hGoals;
             simTable[m.homeTeam].goalDiff += (hGoals - aGoals);
             simTable[m.awayTeam].goalsScored += aGoals;
             simTable[m.awayTeam].goalDiff += (aGoals - hGoals);
-            
+
             if (hGoals > aGoals)       simTable[m.homeTeam].points += 3;
             else if (hGoals < aGoals)  simTable[m.awayTeam].points += 3;
             else {
@@ -213,20 +208,17 @@ vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>
                 simTable[m.awayTeam].points += 1;
             }
         }
-        
+
         vector<SimTeam> iterationTable;
-        for (const auto& pair : simTable) {
-            iterationTable.push_back(pair.second);
-        }
-        
-        // Comprehensive FIFA Standings Sort: Points -> Goal Difference -> Goals Scored -> Fallback Name
+        for (const auto& pair : simTable) iterationTable.push_back(pair.second);
+
         sort(iterationTable.begin(), iterationTable.end(), [](const SimTeam& a, const SimTeam& b) {
             if (a.points != b.points) return a.points > b.points;
             if (a.goalDiff != b.goalDiff) return a.goalDiff > b.goalDiff;
             if (a.goalsScored != b.goalsScored) return a.goalsScored > b.goalsScored;
             return a.name < b.name;
         });
-        
+
         for (int pos = 0; pos < 4 && pos < (int)iterationTable.size(); ++pos) {
             groupTeams[iterationTable[pos].name].finishPositions[pos]++;
         }
@@ -239,7 +231,7 @@ vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>
         return (a.finishPositions[0] > b.finishPositions[0]);
     });
 
-    // Console output log
+    // Console output (unchanged)
     cout << "\n========================================\n GROUP " << groupName << " MID-TOURNAMENT STATUS\n========================================\n";
     cout << left << setw(22) << "Team" << setw(12) << "Exp. Pts" << setw(10) << "1st %" << setw(10) << "2nd %" << setw(10) << "3rd %" << setw(10) << "4th %" << endl;
     cout << string(74, '-') << endl;
@@ -250,44 +242,54 @@ vector<TeamStats> simulateGroup(const string& groupName, vector<MatchPrediction>
         cout << endl;
     }
 
-    // Versioned JSON serialization string structure
-    jsonBuffer << "    \"" << groupName << "\": {\n";
-    jsonBuffer << "      \"matches\": [\n";
-    for (size_t i = 0; i < matches.size(); ++i) {
-        const auto& m = matches[i];
-        auto topScores = getTopScorelines(m, 3);
-        jsonBuffer << "        {\n"
-                   << "          \"home\": \"" << m.homeTeam << "\",\n"
-                   << "          \"away\": \"" << m.awayTeam << "\",\n"
-                   << "          \"home_win_prob\": " << fixed << setprecision(6) << m.homeWinProb << ",\n"
-                   << "          \"draw_prob\": " << m.drawProb << ",\n"
-                   << "          \"away_win_prob\": " << m.awayWinProb << ",\n"
-                   << "          \"home_xg\": " << m.homeXg << ",\n"
-                   << "          \"away_xg\": " << m.awayXg << ",\n"
-                   << "          \"is_played\": " << m.isPlayed << ",\n"
-                   << "          \"likely_scores\": [\n";
-        for (size_t j = 0; j < topScores.size(); ++j) {
-            jsonBuffer << "            { \"score\": \"" << topScores[j].score << "\", \"prob\": " << topScores[j].prob << " }" << (j + 1 < topScores.size() ? "," : "") << "\n";
-        }
-        jsonBuffer << "          ]\n"
-                   << "        }" << (i + 1 < matches.size() ? "," : "") << "\n";
-    }
-    jsonBuffer << "      ],\n      \"table_probabilities\": [\n";
-    for (size_t i = 0; i < displayTable.size(); ++i) {
-        const auto& t = displayTable[i];
-        jsonBuffer << "        {\n"
-                   << "          \"team\": \"" << t.name << "\",\n"
-                   << "          \"expected_points\": " << fixed << setprecision(2) << t.expectedPoints << ",\n"
-                   << "          \"probabilities\": {\n"
-                   << "            \"1st\": " << (t.finishPositions[0] / (double)SIMULATIONS) << ",\n"
-                   << "            \"2nd\": " << (t.finishPositions[1] / (double)SIMULATIONS) << ",\n"
-                   << "            \"3rd\": " << (t.finishPositions[2] / (double)SIMULATIONS) << ",\n"
-                   << "            \"4th\": " << (t.finishPositions[3] / (double)SIMULATIONS) << "\n"
-                   << "          }\n"
-                   << "        }" << (i + 1 < displayTable.size() ? "," : "") << "\n";
-    }
-    jsonBuffer << "      ]\n    }";
     return displayTable;
+}
+
+// ---------------------------------------------------------
+// JSON WRITING (compact, knockout‑style)
+// ---------------------------------------------------------
+void writeCompactJSON(const string& filepath) {
+    ofstream out(filepath);
+    if (!out.is_open()) { cerr << "Error writing JSON\n"; return; }
+
+    out << "{\n  \"matches\": [\n";
+    for (size_t i = 0; i < allMatches.size(); ++i) {
+        const auto& m = allMatches[i];
+        out << "    {"
+            << "\"group\":\"" << m.group << "\","
+            << "\"home\":\"" << m.homeTeam << "\","
+            << "\"away\":\"" << m.awayTeam << "\","
+            << "\"home_xg\":" << m.homeXg << ","
+            << "\"away_xg\":" << m.awayXg << ","
+            << "\"played\":" << (m.isPlayed ? "true" : "false") << ","
+            << "\"p_home\":" << m.homeWinProb << ","
+            << "\"p_draw\":" << m.drawProb << ","
+            << "\"p_away\":" << m.awayWinProb << ","
+            << "\"score\":\"" << m.likelyScore << "\"}";
+        if (i < allMatches.size() - 1) out << ",";
+        out << "\n";
+    }
+    out << "  ],\n  \"standings\": {\n";
+    size_t gIdx = 0;
+    for (const auto& [grp, teams] : allStandings) {
+        out << "    \"" << grp << "\": [";
+        for (size_t j = 0; j < teams.size(); ++j) {
+            const auto& t = teams[j];
+            out << "{\"team\":\"" << t.name
+                << "\",\"pts\":" << fixed << setprecision(2) << t.expectedPoints
+                << ",\"pos\":["
+                << (t.finishPositions[0] / 1000000.0) << ","
+                << (t.finishPositions[1] / 1000000.0) << ","
+                << (t.finishPositions[2] / 1000000.0) << ","
+                << (t.finishPositions[3] / 1000000.0) << "]}";
+            if (j < teams.size() - 1) out << ",";
+        }
+        out << "]";
+        if (++gIdx < allStandings.size()) out << ",";
+        out << "\n";
+    }
+    out << "  }\n}\n";
+    out.close();
 }
 
 // ---------------------------------------------------------
@@ -309,11 +311,11 @@ int main() {
 
     map<string, vector<MatchPrediction>> tournamentGroups;
     string line;
-    getline(file, line); // Skip CSV header line
+    getline(file, line); // skip header
 
     int rowCount = 0;
     while (getline(file, line)) {
-        if(line.empty()) continue;
+        if (line.empty()) continue;
         stringstream ss(line);
         string cell;
         MatchPrediction match;
@@ -329,33 +331,20 @@ int main() {
         rowCount++;
     }
     file.close();
-
     cout << "Successfully ingested " << rowCount << " matches into memory architecture.\n";
 
-    stringstream jsonBuffer;
-    jsonBuffer << "{\n  \"simulation_date\": \"" << __DATE__ << " " << __TIME__ << "\",\n";
-    jsonBuffer << "  \"groups\": {\n";
-
-    size_t groupCount = 0;
-    size_t totalGroups = tournamentGroups.size();
+    // Simulate groups and store results for JSON
     for (auto& groupPair : tournamentGroups) {
-        simulateGroup(groupPair.first, groupPair.second, jsonBuffer);
-        groupCount++;
-        if (groupCount < totalGroups) jsonBuffer << ",\n";
-        else jsonBuffer << "\n";
+        string grp = groupPair.first;
+        auto& matches = groupPair.second;
+        auto standings = simulateGroup(grp, matches);
+        // Copy matches (now containing probabilities and likelyScore) to global list
+        for (auto& m : matches) allMatches.push_back(m);
+        allStandings[grp] = standings;
     }
-    jsonBuffer << "  }\n}\n";
 
-    ofstream jsonFile(jsonOutPath);
-    if (jsonFile.is_open()) {
-        jsonFile << jsonBuffer.str();
-        jsonFile.close();
-        cout << "\n========================================================\n";
-        cout << "✅ Success! Hybrid simulation data matrix saved to:\n   " << jsonOutPath << "\n";
-    } else {
-        cerr << "\nERROR: Target write stream failed for: " << jsonOutPath << endl;
-        return 1;
-    }
+    // Write compact JSON
+    writeCompactJSON(jsonOutPath);
 
     return 0;
 }

@@ -1,0 +1,12 @@
+============================================================
+FEATURE IMPORTANCE (Group Stage Model)
+============================================================
+Baseline validation loss: 1.015787
+
+FIFA Diff                      0.000069
+Weighted Margin Diff           0.003929
+Count >50M Diff                0.004757
+Squad Median Diff              0.012407
+Squad Var Diff                 0.014216
+Squad Sum Diff                 0.025035
+Elo Diff                       0.030661
